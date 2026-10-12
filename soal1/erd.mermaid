@@ -1,0 +1,29 @@
+erDiagram
+    CHART_OF_ACCOUNTS ||--o{ JOURNAL_LINES : "dipakai pada"
+    JOURNAL_HEADERS ||--|{ JOURNAL_LINES : "memiliki"
+
+    CHART_OF_ACCOUNTS {
+        bigint account_id PK
+        varchar account_code UK
+        varchar account_name
+        varchar normal_balance "DEBIT atau CREDIT"
+        varchar report_classification "ASSET, LIABILITY, EQUITY, REVENUE, EXPENSE"
+    }
+
+    JOURNAL_HEADERS {
+        bigint journal_id PK
+        date trx_date
+        varchar reference_no
+        text description
+        varchar posting_status "DRAFT atau POSTED"
+        varchar created_by
+        timestamptz created_at
+    }
+
+    JOURNAL_LINES 
+        bigint line_id PK
+        bigint journal_id FK
+        bigint account_id FK
+        numeric debit
+        numeric credit
+    }

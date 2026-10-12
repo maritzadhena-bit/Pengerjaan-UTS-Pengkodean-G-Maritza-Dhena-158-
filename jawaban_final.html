@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jawaban_final.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="laporan-ujian-tengah-semester--coding-akuntansi">LAPORAN UJIAN TENGAH SEMESTER — CODING AKUNTANSI</h1>
+<h2 id="program-studi-s1-akuntansi">Program Studi S1 Akuntansi</h2>
+<h3 id="fakultas-ekonomika-dan-bisnis--universitas-diponegoro">Fakultas Ekonomika dan Bisnis — Universitas Diponegoro</h3>
+<table>
+<thead>
+<tr>
+<th>Identitas</th>
+<th>Keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nama</td>
+<td><strong>[MARITZA DHENA ALIFYA]</strong></td>
+</tr>
+<tr>
+<td>NIM</td>
+<td><strong>[12030124130158]</strong></td>
+</tr>
+<tr>
+<td>Kelas</td>
+<td><strong>[G]</strong></td>
+</tr>
+<tr>
+<td>Mata Kuliah</td>
+<td>Pemrograman / Coding</td>
+</tr>
+<tr>
+<td>Dosen Pengampu</td>
+<td>Totok Dewayanto</td>
+</tr>
+<tr>
+<td>Tanggal Ujian</td>
+<td>19 Oktober 2026</td>
+</tr>
+<tr>
+<td>Repositori GitHub</td>
+<td><strong>[https://github.com/maritzadhena-bit/Pengerjaan-UTS-Pengkodean-G-Maritza-Dhena-158-.git]</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Laporan ini mendokumentasikan rancangan basis data General Ledger, otomasi persediaan, serta purwarupa aplikasi Voucher Kas Keluar. Pembahasan menggabungkan konsep akuntansi double-entry, pengendalian integritas data pada PostgreSQL, concurrency, audit trail, dan penggunaan AI generatif secara terpandu.</p>
+<p><strong>Alat bantu yang digunakan/dicatat:</strong> NotebookLM, PostgreSQL Sandbox (Neon.tech), Gemini Canvas. Atribusi masing-masing hasil harus dicocokkan dengan riwayat penggunaan aktual pada <a href="#a-daftar-prompt-ai-yang-digunakan">Lampiran A</a>.</p>
+<div class="page-break"></div>
+<h1 id="daftar-isi">DAFTAR ISI</h1>
+<ol>
+<li><a href="#soal-1--desain-arsitektur-data-bobot-25">Soal 1 — Desain Arsitektur Data (Bobot 25%)</a></li>
+<li><a href="#soal-2--otomasi-bisnis-dan-trigger-bobot-40">Soal 2 — Otomasi Bisnis dan Trigger (Bobot 40%)</a></li>
+<li><a href="#soal-3--web-full-stack-dan-ai-bobot-35">Soal 3 — Web Full-Stack dan AI (Bobot 35%)</a></li>
+<li><a href="#lampiran">Lampiran</a></li>
+</ol>
+<div class="page-break"></div>
+<h1 id="soal-1--desain-arsitektur-data-bobot-25">SOAL 1 — DESAIN ARSITEKTUR DATA (Bobot 25%)</h1>
+<h2 id="11-perancangan-skema-relasional-erd">1.1 Perancangan Skema Relasional (ERD)</h2>
+<h3 id="a-atribut-tiap-entitas">a. Atribut Tiap Entitas</h3>
+<h4 id="chart_of_accounts"><code>chart_of_accounts</code></h4>
+<table>
+<thead>
+<tr>
+<th>Atribut</th>
+<th>Tipe data</th>
+<th>Kunci/aturan</th>
+<th>Keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>account_id</code></td>
+<td><code>BIGINT</code></td>
+<td>PK, identity</td>
+<td>Identitas unik akun.</td>
+</tr>
+<tr>
+<td><code>account_code</code></td>
+<td><code>VARCHAR(30)</code></td>
+<td>UNIQUE, NOT NULL</td>
+<td>Kode akun.</td>
+</tr>
+<tr>
+<td><code>account_name</code></td>
+<td><code>VARCHAR(150)</code></td>
+<td>NOT NULL</td>
+<td>Nama akun.</td>
+</tr>
+<tr>
+<td><code>normal_balance</code></td>
+<td><code>VARCHAR(6)</code></td>
+<td>NOT NULL, CHECK</td>
+<td>Saldo normal <code>DEBIT</code> atau <code>CREDIT</code>.</td>
+</tr>
+<tr>
+<td><code>report_classification</code></td>
+<td><code>VARCHAR(20)</code></td>
+<td>NOT NULL, CHECK</td>
+<td>Klasifikasi <code>ASSET</code>, <code>LIABILITY</code>, <code>EQUITY</code>, <code>REVENUE</code>, atau <code>EXPENSE</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="journal_headers"><code>journal_headers</code></h4>
+<table>
+<thead>
+<tr>
+<th>Atribut</th>
+<th>Tipe data</th>
+<th>Kunci/aturan</th>
+<th>Keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>journal_id</code></td>
+<td><code>BIGINT</code></td>
+<td>PK, identity</td>
+<td>Identitas voucher/jurnal.</td>
+</tr>
+<tr>
+<td><code>trx_date</code></td>
+<td><code>DATE</code></td>
+<td>NOT NULL</td>
+<td>Tanggal transaksi.</td>
+</tr>
+<tr>
+<td><code>reference_no</code></td>
+<td><code>VARCHAR(50)</code></td>
+<td>NOT NULL</td>
+<td>Nomor bukti atau referensi voucher.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>TEXT</code></td>
+<td>NOT NULL</td>
+<td>Deskripsi transaksi.</td>
+</tr>
+<tr>
+<td><code>posting_status</code></td>
+<td><code>VARCHAR(10)</code></td>
+<td>NOT NULL, default <code>DRAFT</code>, CHECK</td>
+<td>Status <code>DRAFT</code> atau <code>POSTED</code>.</td>
+</tr>
+<tr>
+<td><code>created_by</code></td>
+<td><code>VARCHAR(100)</code></td>
+<td>NOT NULL</td>
+<td>Pengguna pembuat voucher.</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>TIMESTAMPTZ</code></td>
+<td>NOT NULL, default waktu saat ini</td>
+<td>Waktu pembuatan voucher.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="journal_lines"><code>journal_lines</code></h4>
+<table>
+<thead>
+<tr>
+<th>Atribut</th>
+<th>Tipe data</th>
+<th>Kunci/aturan</th>
+<th>Keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>line_id</code></td>
+<td><code>BIGINT</code></td>
+<td>PK, identity</td>
+<td>Identitas unik baris jurnal.</td>
+</tr>
+<tr>
+<td><code>journal_id</code></td>
+<td><code>BIGINT</code></td>
+<td>FK, NOT NULL</td>
+<td>Header voucher yang memiliki baris ini.</td>
+</tr>
+<tr>
+<td><code>account_id</code></td>
+<td><code>BIGINT</code></td>
+<td>FK, NOT NULL</td>
+<td>Akun yang digunakan pada baris ini.</td>
+</tr>
+<tr>
+<td><code>debit</code></td>
+<td><code>NUMERIC(18,2)</code></td>
+<td>NOT NULL, default 0, CHECK</td>
+<td>Nilai debit nonnegatif.</td>
+</tr>
+<tr>
+<td><code>credit</code></td>
+<td><code>NUMERIC(18,2)</code></td>
+<td>NOT NULL, default 0, CHECK</td>
+<td>Nilai kredit nonnegatif.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="b-diagram-erd-mermaid">b. Diagram ERD (Mermaid)</h3>
+<pre><code class="language-mermaid"><div class="mermaid">erDiagram
+    CHART_OF_ACCOUNTS ||--o{ JOURNAL_LINES : "dipakai_di"
+    JOURNAL_HEADERS ||--|{ JOURNAL_LINES : "memiliki"
+
+    CHART_OF_ACCOUNTS {
+        bigint account_id PK
+        varchar account_code UK
+        varchar account_name
+        varchar normal_balance
+        varchar report_classification
+    }
+
+    JOURNAL_HEADERS {
+        bigint journal_id PK
+        date trx_date
+        varchar reference_no
+        text description
+        varchar posting_status
+        varchar created_by
+        timestamptz created_at
+    }
+
+    JOURNAL_LINES {
+        bigint line_id PK
+        bigint journal_id FK
+        bigint account_id FK
+        numeric debit
+        numeric credit
+    }
+</div></code></pre>
+<p><em>Gambar 1.1 — ERD General Ledger</em></p>
+<h3 id="c-tabel-relasi">c. Tabel Relasi</h3>
+<table>
+<thead>
+<tr>
+<th>Relasi</th>
+<th>Kardinalitas</th>
+<th>Penjelasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chart_of_accounts</code> — <code>journal_lines</code></td>
+<td>Satu akun ke nol atau banyak baris (<code>1 : 0..N</code>)</td>
+<td>Akun dapat belum pernah dipakai atau dipakai pada banyak baris; setiap baris wajib menunjuk satu akun.</td>
+</tr>
+<tr>
+<td><code>journal_headers</code> — <code>journal_lines</code></td>
+<td>Satu header ke satu atau banyak baris (<code>1 : 1..N</code>)</td>
+<td>Satu voucher berisi sekurang-kurangnya satu baris; setiap baris dimiliki tepat satu header.</td>
+</tr>
+<tr>
+<td><code>journal_headers</code> — <code>chart_of_accounts</code></td>
+<td>Banyak ke banyak melalui <code>journal_lines</code></td>
+<td>Sebuah voucher dapat memakai banyak akun, dan satu akun dapat muncul di banyak voucher.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="d-alasan-memenuhi-3nf">d. Alasan Memenuhi 3NF</h3>
+<p>Dalam model header-line, atribut akun dikelola di <code>chart_of_accounts</code>, atribut transaksi disimpan di <code>journal_headers</code>, dan nominal debit/kredit serta referensi disimpan di <code>journal_lines</code>. Atribut non-key berada pada tabel yang key-nya menentukan atribut tersebut. Dengan demikian, informasi header dan akun tidak perlu disalin pada setiap baris jurnal; ketergantungan transitif dan anomali update, insert, serta delete dapat dikurangi.</p>
+<h2 id="12-kekangan-integritas-ddl-postgresql">1.2 Kekangan Integritas (DDL PostgreSQL)</h2>
+<p>DDL berikut mendefinisikan ketiga tabel, kunci, validasi nilai, komentar constraint, serta indeks yang diperlukan.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE TABLE</span> chart_of_accounts (
+    account_id <span class="hljs-type">BIGINT</span> GENERATED ALWAYS <span class="hljs-keyword">AS</span> <span class="hljs-keyword">IDENTITY</span>,
+    account_code <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">30</span>) <span class="hljs-keyword">NOT NULL</span>,
+    account_name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">150</span>) <span class="hljs-keyword">NOT NULL</span>,
+    normal_balance <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">6</span>) <span class="hljs-keyword">NOT NULL</span>,
+    report_classification <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT NULL</span>,
+    <span class="hljs-keyword">CONSTRAINT</span> pk_chart_of_accounts
+        <span class="hljs-keyword">PRIMARY KEY</span> (account_id),
+    <span class="hljs-keyword">CONSTRAINT</span> uq_chart_of_accounts_account_code
+        <span class="hljs-keyword">UNIQUE</span> (account_code),
+    <span class="hljs-keyword">CONSTRAINT</span> ck_chart_of_accounts_normal_balance
+        <span class="hljs-keyword">CHECK</span> (normal_balance <span class="hljs-keyword">IN</span> (<span class="hljs-string">&#x27;DEBIT&#x27;</span>, <span class="hljs-string">&#x27;CREDIT&#x27;</span>)),
+    <span class="hljs-keyword">CONSTRAINT</span> ck_chart_of_accounts_report_classification
+        <span class="hljs-keyword">CHECK</span> (
+            report_classification <span class="hljs-keyword">IN</span>
+                (<span class="hljs-string">&#x27;ASSET&#x27;</span>, <span class="hljs-string">&#x27;LIABILITY&#x27;</span>, <span class="hljs-string">&#x27;EQUITY&#x27;</span>, <span class="hljs-string">&#x27;REVENUE&#x27;</span>, <span class="hljs-string">&#x27;EXPENSE&#x27;</span>)
+        )
+);
+
+COMMENT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">CONSTRAINT</span> pk_chart_of_accounts <span class="hljs-keyword">ON</span> chart_of_accounts
+    <span class="hljs-keyword">IS</span> <span class="hljs-string">&#x27;Menjamin setiap akun memiliki identitas unik sebagai primary key.&#x27;</span>;
+COMMENT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">CONSTRAINT</span> uq_chart_of_accounts_account_code <span class="hljs-keyword">ON</span> chart_of_accounts
+    <span class="hljs-keyword">IS</span> <span class="hljs-string">&#x27;Mencegah kode akun yang sama digunakan lebih dari satu kali.&#x27;</span>;
+COMMENT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">CONSTRAINT</span> ck_chart_of_accounts_normal_balance <span class="hljs-keyword">ON</span> chart_of_accounts
+    <span class="hljs-keyword">IS</span> <span class="hljs-string">&#x27;Membatasi saldo normal akun ke DEBIT atau CREDIT.&#x27;</span>;
+COMMENT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">CONSTRAINT</span> ck_chart_of_accounts_report_classification
+    <span class="hljs-keyword">ON</span> chart_of_accounts
+    <span class="hljs-keyword">IS</span> <span class="hljs-string">&#x27;Membatasi klasifikasi akun ke kelompok laporan keuangan yang dikenal.&#x27;</span>;
+
+<span class="hljs-keyword">CREATE TABLE</span> journal_headers (
+    journal_id <span class="hljs-type">BIGINT</span> GENERATED ALWAYS <span class="hljs-keyword">AS</span> <span class="hljs-keyword">IDENTITY</span>,
+    trx_date <span class="hljs-type">DATE</span> <span class="hljs-keyword">NOT NULL</span>,
+    reference_no <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT NULL</span>,
+    description TEXT <span class="hljs-keyword">NOT NULL</span>,
+    posting_status <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;DRAFT&#x27;</span>,
+    created_by <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">NOT NULL</span>,
+    created_at TIMESTAMPTZ <span class="hljs-keyword">NOT NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-built_in">CURRENT_TIMESTAMP</span>,
+    <span class="hljs-keyword">CONSTRAINT</span> pk_journal_headers
+        <span class="hljs-keyword">PRIMARY KEY</span> (journal_id),
+    <span class="hljs-keyword">CONSTRAINT</span> ck_journal_headers_posting_status
+        <span class="hljs-keyword">CHECK</span> (posting_status <span class="hljs-keyword">IN</span> (<span class="hljs-string">&#x27;DRAFT&#x27;</span>, <span class="hljs-string">&#x27;POSTED&#x27;</span>))
+);
+
+COMMENT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">CONSTRAINT</span> pk_journal_headers <span class="hljs-keyword">ON</span> journal_headers
+    <span class="hljs-keyword">IS</span> <span class="hljs-string">&#x27;Menjamin setiap transaksi jurnal memiliki identitas header yang unik.&#x27;</span>;
+COMMENT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">CONSTRAINT</span> ck_journal_headers_posting_status <span class="hljs-keyword">ON</span> journal_headers
+    <span class="hljs-keyword">IS</span> <span class="hljs-string">&#x27;Memastikan status posting hanya bernilai DRAFT atau POSTED.&#x27;</span>;
+
+<span class="hljs-keyword">CREATE TABLE</span> journal_lines (
+    line_id <span class="hljs-type">BIGINT</span> GENERATED ALWAYS <span class="hljs-keyword">AS</span> <span class="hljs-keyword">IDENTITY</span>,
+    journal_id <span class="hljs-type">BIGINT</span> <span class="hljs-keyword">NOT NULL</span>,
+    account_id <span class="hljs-type">BIGINT</span> <span class="hljs-keyword">NOT NULL</span>,
+    debit <span class="hljs-type">NUMERIC</span>(<span class="hljs-number">18</span>, <span class="hljs-number">2</span>) <span class="hljs-keyword">NOT NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span>,
+    credit <span class="hljs-type">NUMERIC</span>(<span class="hljs-number">18</span>, <span class="hljs-number">2</span>) <span class="hljs-keyword">NOT NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span>,
+    <span class="hljs-keyword">CONSTRAINT</span> pk_journal_lines
+        <span class="hljs-keyword">PRIMARY KEY</span> (line_id),
+    <span class="hljs-keyword">CONSTRAINT</span> fk_journal_lines_journal
+        <span class="hljs-keyword">FOREIGN KEY</span> (journal_id)
+        <span class="hljs-keyword">REFERENCES</span> journal_headers (journal_id)
+        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> RESTRICT
+        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> CASCADE,
+    <span class="hljs-keyword">CONSTRAINT</span> fk_journal_lines_account
+        <span class="hljs-keyword">FOREIGN KEY</span> (account_id)
+        <span class="hljs-keyword">REFERENCES</span> chart_of_accounts (account_id)
+        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> RESTRICT
+        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> CASCADE,
+    <span class="hljs-keyword">CONSTRAINT</span> ck_journal_lines_debit_nonnegative
+        <span class="hljs-keyword">CHECK</span> (debit <span class="hljs-operator">&gt;=</span> <span class="hljs-number">0</span>),
+    <span class="hljs-keyword">CONSTRAINT</span> ck_journal_lines_credit_nonnegative
+        <span class="hljs-keyword">CHECK</span> (credit <span class="hljs-operator">&gt;=</span> <span class="hljs-number">0</span>),
+    <span class="hljs-keyword">CONSTRAINT</span> ck_journal_lines_not_both_zero
+        <span class="hljs-keyword">CHECK</span> (debit <span class="hljs-operator">&gt;</span> <span class="hljs-number">0</span> <span class="hljs-keyword">OR</span> credit <span class="hljs-operator">&gt;</span> <span class="hljs-number">0</span>),
+    <span class="hljs-keyword">CONSTRAINT</span> ck_journal_lines_one_side_only
+        <span class="hljs-keyword">CHECK</span> (
+            (debit <span class="hljs-operator">&gt;</span> <span class="hljs-number">0</span> <span class="hljs-keyword">AND</span> credit <span class="hljs-operator">=</span> <span class="hljs-number">0</span>)
+            <span class="hljs-keyword">OR</span> (credit <span class="hljs-operator">&gt;</span> <span class="hljs-number">0</span> <span class="hljs-keyword">AND</span> debit <span class="hljs-operator">=</span> <span class="hljs-number">0</span>)
+        )
+);
+
+COMMENT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">CONSTRAINT</span> pk_journal_lines <span class="hljs-keyword">ON</span> journal_lines
+    <span class="hljs-keyword">IS</span> <span class="hljs-string">&#x27;Menjamin setiap baris jurnal memiliki identitas unik.&#x27;</span>;
+COMMENT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">CONSTRAINT</span> fk_journal_lines_journal <span class="hljs-keyword">ON</span> journal_lines
+    <span class="hljs-keyword">IS</span> <span class="hljs-string">&#x27;Mengaitkan baris ke header yang ada; RESTRICT menjaga audit trail.&#x27;</span>;
+COMMENT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">CONSTRAINT</span> fk_journal_lines_account <span class="hljs-keyword">ON</span> journal_lines
+    <span class="hljs-keyword">IS</span> <span class="hljs-string">&#x27;Mengaitkan baris ke akun yang ada; RESTRICT mencegah penghapusan akun terpakai.&#x27;</span>;
+COMMENT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">CONSTRAINT</span> ck_journal_lines_debit_nonnegative <span class="hljs-keyword">ON</span> journal_lines
+    <span class="hljs-keyword">IS</span> <span class="hljs-string">&#x27;Melarang nilai debit negatif.&#x27;</span>;
+COMMENT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">CONSTRAINT</span> ck_journal_lines_credit_nonnegative <span class="hljs-keyword">ON</span> journal_lines
+    <span class="hljs-keyword">IS</span> <span class="hljs-string">&#x27;Melarang nilai kredit negatif.&#x27;</span>;
+COMMENT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">CONSTRAINT</span> ck_journal_lines_not_both_zero <span class="hljs-keyword">ON</span> journal_lines
+    <span class="hljs-keyword">IS</span> <span class="hljs-string">&#x27;Memastikan debit dan kredit tidak sama-sama nol.&#x27;</span>;
+COMMENT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">CONSTRAINT</span> ck_journal_lines_one_side_only <span class="hljs-keyword">ON</span> journal_lines
+    <span class="hljs-keyword">IS</span> <span class="hljs-string">&#x27;Memastikan satu baris hanya mencatat debit atau kredit.&#x27;</span>;
+
+<span class="hljs-keyword">CREATE</span> INDEX idx_journal_lines_journal_id
+    <span class="hljs-keyword">ON</span> journal_lines (journal_id);
+<span class="hljs-keyword">CREATE</span> INDEX idx_journal_lines_account_id
+    <span class="hljs-keyword">ON</span> journal_lines (account_id);
+<span class="hljs-keyword">CREATE</span> INDEX idx_journal_headers_trx_date
+    <span class="hljs-keyword">ON</span> journal_headers (trx_date);
+</div></code></pre>
+<p><strong>Penjelasan constraint:</strong></p>
+<ul>
+<li><code>PRIMARY KEY</code> mengidentifikasi baris secara unik dan menolak nilai key duplikat.</li>
+<li><code>FOREIGN KEY</code> menjaga referensi antartabel. <code>ON DELETE RESTRICT</code> mencegah penghapusan akun/header yang sudah memiliki detail sehingga audit trail tidak terputus; koreksi transaksi dilakukan dengan jurnal pembalik. <code>ON UPDATE CASCADE</code> meneruskan perubahan key ke foreign key.</li>
+<li><code>CHECK (debit &gt;= 0)</code> dan <code>CHECK (credit &gt;= 0)</code> menolak nominal negatif.</li>
+<li><code>CHECK (debit &gt; 0 OR credit &gt; 0)</code> menolak debit dan kredit yang sama-sama nol.</li>
+<li><code>ck_journal_lines_one_side_only</code> melarang debit dan kredit positif sekaligus pada satu baris.</li>
+</ul>
+<blockquote>
+<p><strong>Batasan integritas:</strong> constraint di atas memvalidasi tiap baris, bukan total voucher. DDL ini belum menegakkan <code>SUM(debit) = SUM(credit)</code> pada database. Backend memeriksa keseimbangan saat posting, tetapi koneksi langsung ke database masih dapat melewatinya. Untuk integritas menyeluruh, validasi perlu ditegakkan secara atomik oleh prosedur/constraint trigger PostgreSQL dan hak akses langsung dibatasi.</p>
+</blockquote>
+<blockquote>
+<p><strong>Narasi hasil uji DDL:</strong> PostgreSQL/Neon belum dijalankan pada sesi ini. Dengan demikian, keberhasilan eksekusi belum diklaim. Setelah dijalankan pada database uji, catat versi PostgreSQL, waktu pengujian, dan pesan hasil aktual di sini.</p>
+</blockquote>
+<h2 id="13-analisis-audit-dan-keamanan-finansial">1.3 Analisis Audit dan Keamanan Finansial</h2>
+<h3 id="header-line-dibandingkan-flat-table">Header-Line dibandingkan Flat Table</h3>
+<p>Pada tabel flat, setiap baris debit atau kredit mengulang nomor voucher, tanggal, deskripsi, status posting, serta informasi pengguna/waktu. Pengulangan dapat menyebabkan satu voucher memiliki nomor bukti atau status yang tidak konsisten. Pada model Header-Line, satu header mewakili satu voucher, sementara detail akun dan nilai debit/kredit disimpan pada baris yang mengacu melalui foreign key.</p>
+<table>
+<thead>
+<tr>
+<th>Aspek</th>
+<th>Flat journal table</th>
+<th>Model header-line</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identitas voucher</td>
+<td>Diulang pada setiap baris; rentan tidak konsisten.</td>
+<td>Satu <code>journal_id</code> menjadi identitas header; baris menunjuk melalui FK.</td>
+</tr>
+<tr>
+<td>Nomor bukti</td>
+<td>Berulang sehingga harus diperbarui pada setiap baris.</td>
+<td><code>reference_no</code> disimpan sekali pada header.</td>
+</tr>
+<tr>
+<td>Status posting</td>
+<td>Dapat berbeda antarbariѕ bila pembaruan tidak seragam.</td>
+<td>Satu <code>posting_status</code> pada header mewakili status voucher.</td>
+</tr>
+<tr>
+<td>Jejak user dan waktu</td>
+<td>Metadata berulang dan dapat berbeda per baris.</td>
+<td><code>created_by</code> dan <code>created_at</code> dicatat sekali untuk pembuatan voucher; posting memerlukan <code>posted_by</code> dan <code>posted_at</code>.</td>
+</tr>
+<tr>
+<td>Reversal/void</td>
+<td>Relasi koreksi berulang dan mudah tidak sinkron.</td>
+<td>Voucher baru dapat merujuk sumber melalui <code>reversal_of_journal_id</code>; voucher asal dipertahankan.</td>
+</tr>
+</tbody>
+</table>
+<p>Jurnal berstatus <code>POSTED</code> sebaiknya tidak diubah atau dihapus langsung. Kesalahan dikoreksi dengan reversal/storno agar nilai awal, koreksi, aktor, dan waktu dapat ditelusuri. Pemisahan header-line mendukung audit trail, tetapi tidak menggantikan pencatatan riwayat perubahan, kontrol akses, dan dokumentasi pendukung.</p>
+<h3 id="3nf-dan-anomali">3NF dan anomali</h3>
+<p>Misalkan tabel flat menggunakan <code>line_id</code> sebagai primary key dan menyimpan <code>journal_id</code>, <code>trx_date</code>, <code>reference_no</code>, <code>description</code>, serta <code>posting_status</code> di setiap baris. Secara semantik, <code>journal_id → trx_date, reference_no, description, posting_status</code>. Dengan demikian, atribut header bergantung pada <code>line_id</code> melalui <code>journal_id</code> (<code>line_id → journal_id → atribut header</code>), yaitu ketergantungan transitif yang melanggar 3NF. Jika nama/klasifikasi akun turut diulang, berlaku pula <code>account_id → atribut akun</code>.</p>
+<ul>
+<li><strong>Anomali update:</strong> perubahan nomor bukti atau status harus diterapkan pada semua baris; satu baris yang tertinggal menimbulkan data bertentangan.</li>
+<li><strong>Anomali insert:</strong> informasi header sulit direkam secara mandiri sebelum baris detail ada, atau harus diduplikasi.</li>
+<li><strong>Anomali delete:</strong> menghapus baris terakhir voucher dapat menghilangkan satu-satunya salinan atribut header.</li>
+</ul>
+<p>Header-line memindahkan atribut transaksi ke <code>journal_headers</code>, rincian ke <code>journal_lines</code>, dan atribut akun ke <code>chart_of_accounts</code>. Pembagian ini mengurangi redundansi serta memudahkan penyisipan, perubahan, dan penelusuran data.</p>
+<h3 id="kesimpulan">Kesimpulan</h3>
+<p>Model Header-Line lebih andal untuk penelusuran voucher dan normalisasi daripada flat table. Namun, ia tidak otomatis menjamin double-entry seimbang. Constraint per baris harus dilengkapi pemeriksaan total debit-kredit di PostgreSQL pada proses posting. Validasi database diperlukan karena pemeriksaan frontend dapat dilewati oleh API atau akses langsung.</p>
+<div class="page-break"></div>
+<h1 id="soal-2--otomasi-bisnis--trigger-bobot-40">SOAL 2 — OTOMASI BISNIS &amp; TRIGGER (Bobot 40%)</h1>
+<h2 id="21-otomatisasi-mutasi-via-database-trigger">2.1 Otomatisasi Mutasi via Database Trigger</h2>
+<p>Trigger berikut menjalankan mutasi stok setiap <code>INSERT</code> transaksi. Baris item dikunci dengan <code>SELECT ... FOR UPDATE</code>; <code>PURCHASE</code> menambah, <code>SALE</code> mengurangi, dan <code>ADJUSTMENT</code> menggunakan kuantitas bertanda.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">OR</span> REPLACE <span class="hljs-keyword">FUNCTION</span> trg_update_stock_and_journal()
+<span class="hljs-keyword">RETURNS</span> <span class="hljs-keyword">TRIGGER</span>
+<span class="hljs-keyword">LANGUAGE</span> plpgsql
+<span class="hljs-keyword">AS</span> $$
+<span class="hljs-keyword">DECLARE</span>
+    v_stock_qty inventory_items.stock_qty<span class="hljs-operator">%</span>TYPE;
+    v_new_stock_qty inventory_items.stock_qty<span class="hljs-operator">%</span>TYPE;
+<span class="hljs-keyword">BEGIN</span>
+    IF NEW.item_id <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;23502&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;item_id wajib diisi pada inventory_transactions&#x27;</span>;
+    <span class="hljs-keyword">END</span> IF;
+
+    IF NEW.trx_type <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;23502&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;trx_type wajib diisi pada inventory_transactions&#x27;</span>;
+    <span class="hljs-keyword">END</span> IF;
+
+    IF NEW.qty <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">OR</span> NEW.qty <span class="hljs-operator">=</span> <span class="hljs-number">0</span> <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;22023&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;qty tidak boleh NULL atau 0&#x27;</span>;
+    <span class="hljs-keyword">END</span> IF;
+
+    IF NEW.trx_type <span class="hljs-keyword">IN</span> (<span class="hljs-string">&#x27;PURCHASE&#x27;</span>, <span class="hljs-string">&#x27;SALE&#x27;</span>) <span class="hljs-keyword">AND</span> NEW.qty <span class="hljs-operator">&lt;</span> <span class="hljs-number">0</span> <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;22023&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;qty PURCHASE dan SALE harus positif&#x27;</span>;
+    <span class="hljs-keyword">END</span> IF;
+
+    <span class="hljs-keyword">SELECT</span> stock_qty
+      <span class="hljs-keyword">INTO</span> v_stock_qty
+      <span class="hljs-keyword">FROM</span> inventory_items
+     <span class="hljs-keyword">WHERE</span> item_id <span class="hljs-operator">=</span> NEW.item_id
+     <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">UPDATE</span>;
+
+    IF <span class="hljs-keyword">NOT</span> FOUND <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;23503&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> format(<span class="hljs-string">&#x27;Item %s tidak ditemukan&#x27;</span>, NEW.item_id);
+    <span class="hljs-keyword">END</span> IF;
+
+    <span class="hljs-keyword">CASE</span> NEW.trx_type
+        <span class="hljs-keyword">WHEN</span> <span class="hljs-string">&#x27;PURCHASE&#x27;</span> <span class="hljs-keyword">THEN</span>
+            v_new_stock_qty :<span class="hljs-operator">=</span> v_stock_qty <span class="hljs-operator">+</span> NEW.qty;
+        <span class="hljs-keyword">WHEN</span> <span class="hljs-string">&#x27;SALE&#x27;</span> <span class="hljs-keyword">THEN</span>
+            v_new_stock_qty :<span class="hljs-operator">=</span> v_stock_qty <span class="hljs-operator">-</span> NEW.qty;
+        <span class="hljs-keyword">WHEN</span> <span class="hljs-string">&#x27;ADJUSTMENT&#x27;</span> <span class="hljs-keyword">THEN</span>
+            v_new_stock_qty :<span class="hljs-operator">=</span> v_stock_qty <span class="hljs-operator">+</span> NEW.qty;
+        <span class="hljs-keyword">ELSE</span>
+            RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+                ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;22023&#x27;</span>,
+                MESSAGE <span class="hljs-operator">=</span> format(<span class="hljs-string">&#x27;trx_type tidak valid: %s&#x27;</span>, NEW.trx_type);
+    <span class="hljs-keyword">END</span> <span class="hljs-keyword">CASE</span>;
+
+    IF v_new_stock_qty <span class="hljs-operator">&lt;</span> <span class="hljs-number">0</span> <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;23514&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> format(
+                <span class="hljs-string">&#x27;Stok item %s tidak mencukupi: stok %s, transaksi %s %s&#x27;</span>,
+                NEW.item_id,
+                v_stock_qty,
+                NEW.trx_type,
+                NEW.qty
+            );
+    <span class="hljs-keyword">END</span> IF;
+
+    <span class="hljs-keyword">UPDATE</span> inventory_items
+       <span class="hljs-keyword">SET</span> stock_qty <span class="hljs-operator">=</span> v_new_stock_qty
+     <span class="hljs-keyword">WHERE</span> item_id <span class="hljs-operator">=</span> NEW.item_id;
+
+    <span class="hljs-keyword">RETURN</span> <span class="hljs-keyword">NEW</span>;
+<span class="hljs-keyword">END</span>;
+$$;
+
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TRIGGER</span> IF <span class="hljs-keyword">EXISTS</span> inventory_transactions_update_stock
+    <span class="hljs-keyword">ON</span> inventory_transactions;
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TRIGGER</span> inventory_transactions_update_stock
+AFTER <span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">ON</span> inventory_transactions
+<span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-type">ROW</span>
+<span class="hljs-keyword">EXECUTE</span> <span class="hljs-keyword">FUNCTION</span> trg_update_stock_and_journal();
+</div></code></pre>
+<p>Pada transaksi <code>SALE</code>, fungsi menolak saldo baru di bawah nol. Exception dari trigger membatalkan statement <code>INSERT</code> dan perubahan stok dalam statement yang sama. <code>ADJUSTMENT</code> positif menambah stok dan negatif mengurangi stok. Trigger ini hanya mengubah kuantitas; skema soal belum menyediakan jurnal akuntansi Persediaan/HPP atau pemetaan akunnya.</p>
+<h3 id="pengujian-trigger">Pengujian trigger</h3>
+<p>Skrip pengujian mandiri berikut membuat item sementara, memastikan transaksi pembelian/penjualan yang sah mengubah kuantitas, lalu memastikan penjualan berlebih ditolak dan stok tidak berubah.</p>
+<pre class="hljs"><code><div>DO $$
+<span class="hljs-keyword">DECLARE</span>
+    v_item_id <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">10</span>) :<span class="hljs-operator">=</span> <span class="hljs-built_in">upper</span>(substr(md5(random()::text), <span class="hljs-number">1</span>, <span class="hljs-number">10</span>));
+    v_stock_qty <span class="hljs-type">INTEGER</span>;
+    v_rejected <span class="hljs-type">BOOLEAN</span> :<span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span>;
+<span class="hljs-keyword">BEGIN</span>
+    <span class="hljs-keyword">INSERT INTO</span> inventory_items (item_id, item_name, stock_qty, unit_cost)
+    <span class="hljs-keyword">VALUES</span> (v_item_id, <span class="hljs-string">&#x27;Trigger test item&#x27;</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1000.00</span>);
+
+    <span class="hljs-keyword">INSERT INTO</span> inventory_transactions (item_id, trx_type, qty)
+    <span class="hljs-keyword">VALUES</span> (v_item_id, <span class="hljs-string">&#x27;PURCHASE&#x27;</span>, <span class="hljs-number">5</span>);
+
+    <span class="hljs-keyword">SELECT</span> stock_qty <span class="hljs-keyword">INTO</span> v_stock_qty
+      <span class="hljs-keyword">FROM</span> inventory_items
+     <span class="hljs-keyword">WHERE</span> item_id <span class="hljs-operator">=</span> v_item_id;
+    IF v_stock_qty <span class="hljs-operator">&lt;&gt;</span> <span class="hljs-number">10</span> <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-string">&#x27;Stok PURCHASE seharusnya 10, aktual %&#x27;</span>, v_stock_qty;
+    <span class="hljs-keyword">END</span> IF;
+
+    <span class="hljs-keyword">INSERT INTO</span> inventory_transactions (item_id, trx_type, qty)
+    <span class="hljs-keyword">VALUES</span> (v_item_id, <span class="hljs-string">&#x27;SALE&#x27;</span>, <span class="hljs-number">3</span>);
+
+    <span class="hljs-keyword">SELECT</span> stock_qty <span class="hljs-keyword">INTO</span> v_stock_qty
+      <span class="hljs-keyword">FROM</span> inventory_items
+     <span class="hljs-keyword">WHERE</span> item_id <span class="hljs-operator">=</span> v_item_id;
+    IF v_stock_qty <span class="hljs-operator">&lt;&gt;</span> <span class="hljs-number">7</span> <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-string">&#x27;Stok SALE seharusnya 7, aktual %&#x27;</span>, v_stock_qty;
+    <span class="hljs-keyword">END</span> IF;
+
+    <span class="hljs-keyword">BEGIN</span>
+        <span class="hljs-keyword">INSERT INTO</span> inventory_transactions (item_id, trx_type, qty)
+        <span class="hljs-keyword">VALUES</span> (v_item_id, <span class="hljs-string">&#x27;SALE&#x27;</span>, <span class="hljs-number">8</span>);
+    EXCEPTION
+        <span class="hljs-keyword">WHEN</span> <span class="hljs-keyword">SQLSTATE</span> <span class="hljs-string">&#x27;23514&#x27;</span> <span class="hljs-keyword">THEN</span>
+            v_rejected :<span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span>;
+            RAISE NOTICE <span class="hljs-string">&#x27;Uji oversell berhasil: transaksi ditolak.&#x27;</span>;
+    <span class="hljs-keyword">END</span>;
+
+    IF <span class="hljs-keyword">NOT</span> v_rejected <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-string">&#x27;Penjualan yang melebihi stok diterima&#x27;</span>;
+    <span class="hljs-keyword">END</span> IF;
+
+    <span class="hljs-keyword">SELECT</span> stock_qty <span class="hljs-keyword">INTO</span> v_stock_qty
+      <span class="hljs-keyword">FROM</span> inventory_items
+     <span class="hljs-keyword">WHERE</span> item_id <span class="hljs-operator">=</span> v_item_id;
+    IF v_stock_qty <span class="hljs-operator">&lt;&gt;</span> <span class="hljs-number">7</span> <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-string">&#x27;Stok berubah setelah INSERT ditolak: aktual %&#x27;</span>, v_stock_qty;
+    <span class="hljs-keyword">END</span> IF;
+
+    <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> inventory_transactions <span class="hljs-keyword">WHERE</span> item_id <span class="hljs-operator">=</span> v_item_id;
+    <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> inventory_items <span class="hljs-keyword">WHERE</span> item_id <span class="hljs-operator">=</span> v_item_id;
+<span class="hljs-keyword">END</span>;
+$$;
+</div></code></pre>
+<blockquote>
+<p><strong>Narasi hasil uji trigger:</strong> skrip di atas mengharapkan stok awal 5 menjadi 10 setelah pembelian 5, lalu menjadi 7 setelah penjualan 3. Penjualan 8 berikutnya diharapkan menghasilkan SQLSTATE <code>23514</code> dan stok tetap 7. Skrip belum dijalankan pada PostgreSQL di sesi ini; angka tersebut adalah hasil yang diharapkan, bukan hasil eksekusi aktual.</p>
+</blockquote>
+<h2 id="22-penanganan-concurrency">2.2 Penanganan Concurrency</h2>
+<h3 id="race-condition">Race condition</h3>
+<p>Jika stok tersisa satu unit dan dua kasir menjual barang yang sama pada saat bersamaan, keduanya dapat membaca saldo satu sebelum salah satunya menulis perubahan. Tanpa penguncian yang tepat, keduanya berpotensi menjual unit terakhir dan menimbulkan overselling.</p>
+<h3 id="pendekatan-select--for-update">Pendekatan <code>SELECT ... FOR UPDATE</code></h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">OR</span> REPLACE <span class="hljs-keyword">PROCEDURE</span> sell_item_for_update(
+    p_item_id <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">10</span>),
+    p_qty <span class="hljs-type">INTEGER</span>
+)
+<span class="hljs-keyword">LANGUAGE</span> plpgsql
+<span class="hljs-keyword">AS</span> $$
+<span class="hljs-keyword">DECLARE</span>
+    v_stock_qty inventory_items.stock_qty<span class="hljs-operator">%</span>TYPE;
+<span class="hljs-keyword">BEGIN</span>
+    IF p_qty <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">OR</span> p_qty <span class="hljs-operator">&lt;=</span> <span class="hljs-number">0</span> <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;22023&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Kuantitas penjualan harus lebih besar dari nol&#x27;</span>;
+    <span class="hljs-keyword">END</span> IF;
+
+    <span class="hljs-keyword">SELECT</span> stock_qty
+      <span class="hljs-keyword">INTO</span> v_stock_qty
+      <span class="hljs-keyword">FROM</span> inventory_items
+     <span class="hljs-keyword">WHERE</span> item_id <span class="hljs-operator">=</span> p_item_id
+     <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">UPDATE</span>;
+
+    IF <span class="hljs-keyword">NOT</span> FOUND <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;23503&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> format(<span class="hljs-string">&#x27;Item %s tidak ditemukan&#x27;</span>, p_item_id);
+    <span class="hljs-keyword">END</span> IF;
+
+    IF v_stock_qty <span class="hljs-operator">&lt;</span> p_qty <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;23514&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> format(
+                <span class="hljs-string">&#x27;Stok tidak cukup: tersedia %s, diminta %s&#x27;</span>,
+                v_stock_qty,
+                p_qty
+            );
+    <span class="hljs-keyword">END</span> IF;
+
+    <span class="hljs-keyword">INSERT INTO</span> inventory_transactions (item_id, trx_type, qty)
+    <span class="hljs-keyword">VALUES</span> (p_item_id, <span class="hljs-string">&#x27;SALE&#x27;</span>, p_qty);
+<span class="hljs-keyword">END</span>;
+$$;
+
+<span class="hljs-keyword">BEGIN</span>;
+<span class="hljs-keyword">CALL</span> sell_item_for_update(<span class="hljs-string">&#x27;ITEM-001&#x27;</span>, <span class="hljs-number">1</span>);
+<span class="hljs-keyword">COMMIT</span>;
+</div></code></pre>
+<p>Row lock dipegang sampai transaksi berakhir. Kasir kedua menunggu, membaca stok terbaru setelah lock dilepas, lalu ditolak jika stok sudah habis. Trigger tetap memvalidasi saldo pada semua jalur <code>INSERT</code>.</p>
+<h3 id="pendekatan-serializable">Pendekatan <code>SERIALIZABLE</code></h3>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">OR</span> REPLACE <span class="hljs-keyword">PROCEDURE</span> sell_item_serializable(
+    p_item_id <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">10</span>),
+    p_qty <span class="hljs-type">INTEGER</span>
+)
+<span class="hljs-keyword">LANGUAGE</span> plpgsql
+<span class="hljs-keyword">AS</span> $$
+<span class="hljs-keyword">DECLARE</span>
+    v_stock_qty inventory_items.stock_qty<span class="hljs-operator">%</span>TYPE;
+<span class="hljs-keyword">BEGIN</span>
+    IF p_qty <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">OR</span> p_qty <span class="hljs-operator">&lt;=</span> <span class="hljs-number">0</span> <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;22023&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Kuantitas penjualan harus lebih besar dari nol&#x27;</span>;
+    <span class="hljs-keyword">END</span> IF;
+
+    <span class="hljs-keyword">SELECT</span> stock_qty
+      <span class="hljs-keyword">INTO</span> v_stock_qty
+      <span class="hljs-keyword">FROM</span> inventory_items
+     <span class="hljs-keyword">WHERE</span> item_id <span class="hljs-operator">=</span> p_item_id;
+
+    IF <span class="hljs-keyword">NOT</span> FOUND <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;23503&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> format(<span class="hljs-string">&#x27;Item %s tidak ditemukan&#x27;</span>, p_item_id);
+    <span class="hljs-keyword">END</span> IF;
+
+    IF v_stock_qty <span class="hljs-operator">&lt;</span> p_qty <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;23514&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> format(
+                <span class="hljs-string">&#x27;Stok tidak cukup: tersedia %s, diminta %s&#x27;</span>,
+                v_stock_qty,
+                p_qty
+            );
+    <span class="hljs-keyword">END</span> IF;
+
+    <span class="hljs-keyword">INSERT INTO</span> inventory_transactions (item_id, trx_type, qty)
+    <span class="hljs-keyword">VALUES</span> (p_item_id, <span class="hljs-string">&#x27;SALE&#x27;</span>, p_qty);
+<span class="hljs-keyword">END</span>;
+$$;
+
+<span class="hljs-keyword">BEGIN</span>;
+<span class="hljs-keyword">SET</span> TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+<span class="hljs-keyword">CALL</span> sell_item_serializable(<span class="hljs-string">&#x27;ITEM-001&#x27;</span>, <span class="hljs-number">1</span>);
+<span class="hljs-keyword">COMMIT</span>;
+</div></code></pre>
+<p>Jika PostgreSQL membatalkan transaksi dengan SQLSTATE <code>40001</code>, aplikasi harus me-rollback dan mengulang seluruh transaksi secara terbatas. Kesalahan bisnis seperti stok tidak cukup bukan alasan retry otomatis.</p>
+<h3 id="perbandingan-dan-kesimpulan">Perbandingan dan kesimpulan</h3>
+<table>
+<thead>
+<tr>
+<th>Aspek</th>
+<th><code>SELECT ... FOR UPDATE</code></th>
+<th><code>SERIALIZABLE</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cara kerja</td>
+<td>Mengunci baris item tertentu; transaksi pesaing menunggu.</td>
+<td>Menjamin transaksi yang berhasil setara dengan urutan serial dan dapat membatalkan transaksi konflik.</td>
+</tr>
+<tr>
+<td>Kelebihan</td>
+<td>Sederhana, terarah, dan cocok untuk item yang diketahui.</td>
+<td>Cocok untuk aturan lebih kompleks yang melibatkan beberapa baris atau predikat.</td>
+</tr>
+<tr>
+<td>Kekurangan</td>
+<td>Dapat menimbulkan antrean atau deadlock jika banyak baris dikunci dengan urutan berbeda.</td>
+<td>Membutuhkan penanganan <code>40001</code> dan retry seluruh transaksi.</td>
+</tr>
+<tr>
+<td>Rekomendasi</td>
+<td>Pilihan utama untuk penjualan stok item tertentu.</td>
+<td>Dipakai jika aturan bisnis memerlukan serialisasi yang lebih luas.</td>
+</tr>
+</tbody>
+</table>
+<p>Untuk skenario ritel ini, <code>SELECT ... FOR UPDATE</code> pada baris item paling tepat karena mengunci sumber daya yang diperebutkan tanpa menahan transaksi untuk item lain.</p>
+<blockquote>
+<p><strong>Narasi hasil uji concurrency:</strong> berdasarkan mekanisme row lock, transaksi kedua pada item yang sama menunggu transaksi pertama dan kemudian membaca stok yang telah diperbarui. Pada pendekatan <code>SERIALIZABLE</code>, PostgreSQL dapat membatalkan salah satu transaksi dengan <code>40001</code>. Simulasi dua sesi bersamaan belum dijalankan; narasi ini menjelaskan perilaku yang diharapkan menurut mekanisme PostgreSQL.</p>
+</blockquote>
+<div class="page-break"></div>
+<h1 id="soal-3--web-full-stack--ai-bobot-35">SOAL 3 — WEB FULL-STACK &amp; AI (Bobot 35%)</h1>
+<h2 id="31a-formulir-entri-jurnal-gemini-canvas">3.1a Formulir Entri Jurnal (Gemini Canvas)</h2>
+<p>Kode berikut adalah aplikasi Streamlit lengkap untuk formulir voucher kas keluar. <code>st.data_editor</code> menyediakan baris dinamis; nilai kosong untuk nominal dihitung sebagai nol; tombol submit hanya aktif ketika total debit sama dengan total kredit dan total debit lebih besar dari nol.</p>
+<pre class="hljs"><code><div><span class="hljs-string">&quot;&quot;&quot;Formulir Streamlit untuk entri Voucher Kas Keluar.&quot;&quot;&quot;</span>
+
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> streamlit <span class="hljs-keyword">as</span> st
+
+
+st.set_page_config(page_title=<span class="hljs-string">&quot;Voucher Kas Keluar&quot;</span>, layout=<span class="hljs-string">&quot;wide&quot;</span>)
+st.title(<span class="hljs-string">&quot;Voucher Kas Keluar&quot;</span>)
+st.caption(
+    <span class="hljs-string">&quot;Isi informasi voucher dan rincian jurnal. &quot;</span>
+    <span class="hljs-string">&quot;Total debit harus sama dengan total kredit.&quot;</span>
+)
+
+<span class="hljs-comment"># Header voucher.</span>
+header_left, header_right = st.columns(<span class="hljs-number">2</span>)
+<span class="hljs-keyword">with</span> header_left:
+    trx_date = st.date_input(<span class="hljs-string">&quot;Tanggal transaksi&quot;</span>)
+    reference_no = st.text_input(<span class="hljs-string">&quot;Nomor bukti&quot;</span>)
+<span class="hljs-keyword">with</span> header_right:
+    description = st.text_input(<span class="hljs-string">&quot;Deskripsi&quot;</span>)
+
+st.subheader(<span class="hljs-string">&quot;Detail jurnal&quot;</span>)
+
+<span class="hljs-comment"># Baris awal kosong; pengguna dapat menambah atau menghapus baris.</span>
+<span class="hljs-keyword">if</span> <span class="hljs-string">&quot;journal_lines&quot;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> st.session_state:
+    st.session_state.journal_lines = pd.DataFrame(
+        [
+            {
+                <span class="hljs-string">&quot;account_id&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+                <span class="hljs-string">&quot;account_name&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+                <span class="hljs-string">&quot;debit&quot;</span>: <span class="hljs-number">0.0</span>,
+                <span class="hljs-string">&quot;credit&quot;</span>: <span class="hljs-number">0.0</span>,
+            }
+        ]
+    )
+
+edited_lines = st.data_editor(
+    st.session_state.journal_lines,
+    key=<span class="hljs-string">&quot;journal_lines_editor&quot;</span>,
+    num_rows=<span class="hljs-string">&quot;dynamic&quot;</span>,
+    use_container_width=<span class="hljs-literal">True</span>,
+    hide_index=<span class="hljs-literal">True</span>,
+    column_config={
+        <span class="hljs-string">&quot;account_id&quot;</span>: st.column_config.TextColumn(<span class="hljs-string">&quot;Account ID&quot;</span>),
+        <span class="hljs-string">&quot;account_name&quot;</span>: st.column_config.TextColumn(<span class="hljs-string">&quot;Nama akun&quot;</span>),
+        <span class="hljs-string">&quot;debit&quot;</span>: st.column_config.NumberColumn(
+            <span class="hljs-string">&quot;Debit&quot;</span>, min_value=<span class="hljs-number">0.0</span>, step=<span class="hljs-number">0.01</span>, <span class="hljs-built_in">format</span>=<span class="hljs-string">&quot;%.2f&quot;</span>
+        ),
+        <span class="hljs-string">&quot;credit&quot;</span>: st.column_config.NumberColumn(
+            <span class="hljs-string">&quot;Kredit&quot;</span>, min_value=<span class="hljs-number">0.0</span>, step=<span class="hljs-number">0.01</span>, <span class="hljs-built_in">format</span>=<span class="hljs-string">&quot;%.2f&quot;</span>
+        ),
+    },
+)
+st.session_state.journal_lines = edited_lines
+
+<span class="hljs-comment"># Nilai kosong pada sel numerik diperlakukan sebagai nol.</span>
+debit_values = pd.to_numeric(
+    edited_lines[<span class="hljs-string">&quot;debit&quot;</span>], errors=<span class="hljs-string">&quot;coerce&quot;</span>
+).fillna(<span class="hljs-number">0</span>)
+credit_values = pd.to_numeric(
+    edited_lines[<span class="hljs-string">&quot;credit&quot;</span>], errors=<span class="hljs-string">&quot;coerce&quot;</span>
+).fillna(<span class="hljs-number">0</span>)
+total_debit = <span class="hljs-built_in">float</span>(debit_values.<span class="hljs-built_in">sum</span>())
+total_credit = <span class="hljs-built_in">float</span>(credit_values.<span class="hljs-built_in">sum</span>())
+difference = total_debit - total_credit
+is_balanced = total_debit &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">abs</span>(difference) &lt; <span class="hljs-number">0.005</span>
+
+<span class="hljs-comment"># Metrik dan status diperbarui setiap kali editor berubah.</span>
+metric_debit, metric_credit, metric_difference = st.columns(<span class="hljs-number">3</span>)
+metric_debit.metric(<span class="hljs-string">&quot;Total Debit&quot;</span>, <span class="hljs-string">f&quot;Rp <span class="hljs-subst">{total_debit:,<span class="hljs-number">.2</span>f}</span>&quot;</span>)
+metric_credit.metric(<span class="hljs-string">&quot;Total Kredit&quot;</span>, <span class="hljs-string">f&quot;Rp <span class="hljs-subst">{total_credit:,<span class="hljs-number">.2</span>f}</span>&quot;</span>)
+metric_difference.metric(
+    <span class="hljs-string">&quot;Selisih (Debit - Kredit)&quot;</span>, <span class="hljs-string">f&quot;Rp <span class="hljs-subst">{difference:,<span class="hljs-number">.2</span>f}</span>&quot;</span>
+)
+
+<span class="hljs-keyword">if</span> is_balanced:
+    st.success(<span class="hljs-string">&quot;Seimbang — voucher siap disubmit.&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    st.error(
+        <span class="hljs-string">&quot;Belum seimbang — total debit dan kredit harus sama, &quot;</span>
+        <span class="hljs-string">&quot;serta lebih besar dari nol.&quot;</span>
+    )
+
+<span class="hljs-keyword">if</span> st.button(<span class="hljs-string">&quot;Submit Voucher&quot;</span>, <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;primary&quot;</span>, disabled=<span class="hljs-keyword">not</span> is_balanced):
+    st.success(
+        <span class="hljs-string">f&quot;Voucher <span class="hljs-subst">{reference_no <span class="hljs-keyword">or</span> <span class="hljs-string">&#x27;(tanpa nomor bukti)&#x27;</span>}</span> berhasil divalidasi &quot;</span>
+        <span class="hljs-string">f&quot;untuk tanggal <span class="hljs-subst">{trx_date:%d-%m-%Y}</span>.&quot;</span>
+    )
+    st.info(
+        <span class="hljs-string">&quot;Formulir ini belum mengirim data ke backend &quot;</span>
+        <span class="hljs-string">&quot;atau menyimpannya ke database.&quot;</span>
+    )
+</div></code></pre>
+<p><strong>Dokumentasi prompt AI:</strong> prompt meminta form Streamlit Voucher Kas Keluar dengan date picker, nomor bukti, deskripsi, tabel dinamis untuk <code>account_id</code>, <code>account_name</code>, <code>debit</code>, dan <code>credit</code>, nilai debit/kredit minimum nol, indikator jumlah real-time, serta tombol submit berdasarkan keseimbangan. Prompt dan hasil dirangkum pada <a href="soal3/prompt_ai.md"><code>soal3/prompt_ai.md</code></a>.</p>
+<blockquote>
+<p><strong>Narasi hasil uji UI:</strong> secara kode, keadaan awal memiliki total debit dan kredit nol sehingga status tidak seimbang dan tombol submit nonaktif. Saat jumlah debit/kredit diisi sama dan lebih dari nol, status menjadi seimbang dan tombol aktif. Aplikasi belum dijalankan pada sesi ini; uraian tersebut adalah perilaku yang diharapkan dari logika UI, bukan klaim hasil uji runtime. Formulir belum mengirim data ke backend.</p>
+</blockquote>
+<h2 id="31b-verifikasi-kepatuhan-psak-notebooklm">3.1b Verifikasi Kepatuhan PSAK (NotebookLM)</h2>
+<p>Dokumen yang menjadi acuan telaah adalah <strong>PSAK 2 — Laporan Arus Kas</strong>, dengan kewajiban memeriksa edisi dan nomor paragraf terhadap publikasi resmi Ikatan Akuntan Indonesia (IAI) yang berlaku.</p>
+<h3 id="kesesuaian-double-entry">Kesesuaian double-entry</h3>
+<p>Jumlah debit dan kredit yang seimbang merupakan syarat dasar pencatatan berpasangan, tetapi tidak cukup untuk menentukan apakah suatu transaksi memenuhi pengakuan, pengukuran, atau klasifikasi arus kas. Sistem harus mencatat akun lawan yang sesuai dengan substansi transaksi.</p>
+<h3 id="definisi-kas-dan-setara-kas">Definisi kas dan setara kas</h3>
+<p>Secara umum, kas mencakup kas di tangan dan saldo rekening giro. Setara kas merupakan investasi jangka pendek yang sangat likuid, dapat dikonversi menjadi jumlah kas yang diketahui, dan memiliki risiko perubahan nilai yang tidak signifikan. Kriteria rinci—termasuk tujuan kepemilikan dan jangka waktu—harus dirujuk pada versi resmi PSAK yang berlaku.</p>
+<h3 id="aturan-transaksi-kas-keluar">Aturan transaksi kas keluar</h3>
+<p>Arus kas diklasifikasikan sebagai aktivitas operasi, investasi, atau pendanaan sesuai sifat transaksinya. Penerapan PSAK juga perlu mempertimbangkan penyajian arus kas bruto atau neto, transaksi nonkas yang dikecualikan dari laporan arus kas, dan perlakuan pajak berdasarkan ketentuan standar yang relevan.</p>
+<h3 id="audit-trail-dan-traceability">Audit trail dan traceability</h3>
+<p>Identitas pembuat, waktu, status posting, pihak yang mem-posting, referensi dokumen, serta hubungan jurnal pembalik membantu keterlacakan. Checksum dapat mendeteksi perubahan payload bila nilai pembandingnya terlindungi, tetapi tidak menggantikan autentikasi, otorisasi, bukti transaksi, atau log audit independen.</p>
+<blockquote>
+<p><strong>Narasi hasil verifikasi PSAK:</strong> ringkasan konsep di atas merupakan panduan untuk dicocokkan dengan PSAK 2 edisi resmi. Sumber resmi dan nomor paragraf perlu dicatat pada laporan final; ringkasan AI/NotebookLM tidak dianggap sebagai otoritas standar. Penggunaan NotebookLM dan sumber yang dimasukkan harus didukung riwayat aktual pada lampiran.</p>
+</blockquote>
+<h2 id="32-mekanisme-jejak-audit-backend">3.2 Mekanisme Jejak Audit (Backend)</h2>
+<h3 id="a-kode-fastapi">a. Kode FastAPI</h3>
+<p>Kode lengkap backend berikut menyediakan endpoint posting <code>DRAFT</code>, pembuatan reversal, dan verifikasi checksum. Dibutuhkan paket <code>fastapi</code>, <code>psycopg</code> versi 3, serta variabel lingkungan <code>DATABASE_URL</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-string">&quot;&quot;&quot;API prototipe untuk posting voucher dan membuat jurnal pembalik.&quot;&quot;&quot;</span>
+
+<span class="hljs-keyword">from</span> __future__ <span class="hljs-keyword">import</span> annotations
+
+<span class="hljs-keyword">import</span> hashlib
+<span class="hljs-keyword">import</span> hmac
+<span class="hljs-keyword">import</span> json
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> date, datetime
+<span class="hljs-keyword">from</span> decimal <span class="hljs-keyword">import</span> Decimal
+<span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">Any</span>
+
+<span class="hljs-keyword">import</span> psycopg
+<span class="hljs-keyword">from</span> fastapi <span class="hljs-keyword">import</span> FastAPI, HTTPException
+<span class="hljs-keyword">from</span> pydantic <span class="hljs-keyword">import</span> BaseModel, Field
+<span class="hljs-keyword">from</span> psycopg.rows <span class="hljs-keyword">import</span> dict_row
+
+
+app = FastAPI(title=<span class="hljs-string">&quot;Voucher Kas Keluar API&quot;</span>, version=<span class="hljs-string">&quot;1.0.0&quot;</span>)
+
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">LockRequest</span>(<span class="hljs-title class_ inherited__">BaseModel</span>):
+    posted_by: <span class="hljs-built_in">str</span> = Field(min_length=<span class="hljs-number">1</span>, max_length=<span class="hljs-number">100</span>)
+
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ReverseRequest</span>(<span class="hljs-title class_ inherited__">BaseModel</span>):
+    trx_date: date
+    reference_no: <span class="hljs-built_in">str</span> = Field(min_length=<span class="hljs-number">1</span>, max_length=<span class="hljs-number">50</span>)
+    created_by: <span class="hljs-built_in">str</span> = Field(min_length=<span class="hljs-number">1</span>, max_length=<span class="hljs-number">100</span>)
+    posted_by: <span class="hljs-built_in">str</span> = Field(min_length=<span class="hljs-number">1</span>, max_length=<span class="hljs-number">100</span>)
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">_database_url</span>() -&gt; <span class="hljs-built_in">str</span>:
+    value = os.getenv(<span class="hljs-string">&quot;DATABASE_URL&quot;</span>)
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> value:
+        <span class="hljs-keyword">raise</span> HTTPException(
+            status_code=<span class="hljs-number">503</span>,
+            detail=<span class="hljs-string">&quot;DATABASE_URL belum dikonfigurasi&quot;</span>,
+        )
+    <span class="hljs-keyword">return</span> value
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">_as_iso</span>(<span class="hljs-params">value: date | datetime</span>) -&gt; <span class="hljs-built_in">str</span>:
+    <span class="hljs-keyword">return</span> value.isoformat()
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">hash_checksum</span>(<span class="hljs-params">
+    header: <span class="hljs-built_in">dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>],
+    lines: <span class="hljs-built_in">list</span>[<span class="hljs-built_in">dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]],
+    posted_by: <span class="hljs-built_in">str</span>,
+    posted_at: datetime,
+</span>) -&gt; <span class="hljs-built_in">str</span>:
+    <span class="hljs-string">&quot;&quot;&quot;Hitung SHA-256 dari representasi kanonis header dan baris jurnal.&quot;&quot;&quot;</span>
+    canonical_lines = [
+        {
+            <span class="hljs-string">&quot;account_id&quot;</span>: <span class="hljs-built_in">int</span>(line[<span class="hljs-string">&quot;account_id&quot;</span>]),
+            <span class="hljs-string">&quot;debit&quot;</span>: <span class="hljs-built_in">format</span>(Decimal(line[<span class="hljs-string">&quot;debit&quot;</span>]), <span class="hljs-string">&quot;.2f&quot;</span>),
+            <span class="hljs-string">&quot;credit&quot;</span>: <span class="hljs-built_in">format</span>(Decimal(line[<span class="hljs-string">&quot;credit&quot;</span>]), <span class="hljs-string">&quot;.2f&quot;</span>),
+        }
+        <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines
+    ]
+    payload = {
+        <span class="hljs-string">&quot;journal_id&quot;</span>: <span class="hljs-built_in">int</span>(header[<span class="hljs-string">&quot;journal_id&quot;</span>]),
+        <span class="hljs-string">&quot;trx_date&quot;</span>: _as_iso(header[<span class="hljs-string">&quot;trx_date&quot;</span>]),
+        <span class="hljs-string">&quot;reference_no&quot;</span>: header[<span class="hljs-string">&quot;reference_no&quot;</span>],
+        <span class="hljs-string">&quot;description&quot;</span>: header[<span class="hljs-string">&quot;description&quot;</span>],
+        <span class="hljs-string">&quot;created_by&quot;</span>: header[<span class="hljs-string">&quot;created_by&quot;</span>],
+        <span class="hljs-string">&quot;created_at&quot;</span>: _as_iso(header[<span class="hljs-string">&quot;created_at&quot;</span>]),
+        <span class="hljs-string">&quot;posting_status&quot;</span>: <span class="hljs-string">&quot;POSTED&quot;</span>,
+        <span class="hljs-string">&quot;posted_by&quot;</span>: posted_by,
+        <span class="hljs-string">&quot;posted_at&quot;</span>: _as_iso(posted_at),
+        <span class="hljs-string">&quot;reversal_of_journal_id&quot;</span>: header.get(<span class="hljs-string">&quot;reversal_of_journal_id&quot;</span>),
+        <span class="hljs-string">&quot;lines&quot;</span>: canonical_lines,
+    }
+    raw = json.dumps(
+        payload,
+        ensure_ascii=<span class="hljs-literal">False</span>,
+        sort_keys=<span class="hljs-literal">True</span>,
+        separators=(<span class="hljs-string">&quot;,&quot;</span>, <span class="hljs-string">&quot;:&quot;</span>),
+    ).encode(<span class="hljs-string">&quot;utf-8&quot;</span>)
+    <span class="hljs-keyword">return</span> hashlib.sha256(raw).hexdigest()
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">_fetch_header</span>(<span class="hljs-params">
+    conn: psycopg.Connection[<span class="hljs-type">Any</span>],
+    journal_id: <span class="hljs-built_in">int</span>,
+</span>) -&gt; <span class="hljs-built_in">dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>] | <span class="hljs-literal">None</span>:
+    <span class="hljs-keyword">return</span> conn.execute(
+        <span class="hljs-string">&quot;&quot;&quot;
+        SELECT journal_id, trx_date, reference_no, description,
+               posting_status, created_by, created_at,
+               posted_by, posted_at, hash_checksum, reversal_of_journal_id
+          FROM journal_headers
+         WHERE journal_id = %s
+        &quot;&quot;&quot;</span>,
+        (journal_id,),
+    ).fetchone()
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">_fetch_lines</span>(<span class="hljs-params">
+    conn: psycopg.Connection[<span class="hljs-type">Any</span>],
+    journal_id: <span class="hljs-built_in">int</span>,
+</span>) -&gt; <span class="hljs-built_in">list</span>[<span class="hljs-built_in">dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]]:
+    <span class="hljs-keyword">return</span> conn.execute(
+        <span class="hljs-string">&quot;&quot;&quot;
+        SELECT line_id, account_id, debit, credit
+          FROM journal_lines
+         WHERE journal_id = %s
+         ORDER BY line_id
+        &quot;&quot;&quot;</span>,
+        (journal_id,),
+    ).fetchall()
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">_require_balanced</span>(<span class="hljs-params">lines: <span class="hljs-built_in">list</span>[<span class="hljs-built_in">dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]]</span>) -&gt; <span class="hljs-literal">None</span>:
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> lines:
+        <span class="hljs-keyword">raise</span> HTTPException(status_code=<span class="hljs-number">422</span>, detail=<span class="hljs-string">&quot;Jurnal tidak memiliki baris&quot;</span>)
+    total_debit = <span class="hljs-built_in">sum</span>(
+        (Decimal(line[<span class="hljs-string">&quot;debit&quot;</span>]) <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines),
+        Decimal(<span class="hljs-string">&quot;0&quot;</span>),
+    )
+    total_credit = <span class="hljs-built_in">sum</span>(
+        (Decimal(line[<span class="hljs-string">&quot;credit&quot;</span>]) <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines),
+        Decimal(<span class="hljs-string">&quot;0&quot;</span>),
+    )
+    <span class="hljs-keyword">if</span> total_debit &lt;= <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> total_debit != total_credit:
+        <span class="hljs-keyword">raise</span> HTTPException(
+            status_code=<span class="hljs-number">422</span>,
+            detail={
+                <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Total debit dan kredit harus sama serta lebih dari nol&quot;</span>,
+                <span class="hljs-string">&quot;total_debit&quot;</span>: <span class="hljs-built_in">str</span>(total_debit),
+                <span class="hljs-string">&quot;total_credit&quot;</span>: <span class="hljs-built_in">str</span>(total_credit),
+            },
+        )
+
+
+<span class="hljs-meta">@app.post(<span class="hljs-params"><span class="hljs-string">&quot;/journals/{journal_id}/lock&quot;</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">lock_posted_journal</span>(<span class="hljs-params">
+    journal_id: <span class="hljs-built_in">int</span>,
+    request: LockRequest,
+</span>) -&gt; <span class="hljs-built_in">dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]:
+    <span class="hljs-string">&quot;&quot;&quot;Validasi saldo dan ubah voucher DRAFT menjadi POSTED secara atomik.&quot;&quot;&quot;</span>
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">with</span> psycopg.connect(_database_url(), row_factory=dict_row) <span class="hljs-keyword">as</span> conn:
+            header = conn.execute(
+                <span class="hljs-string">&quot;&quot;&quot;
+                SELECT journal_id, trx_date, reference_no, description,
+                       posting_status, created_by, created_at,
+                       reversal_of_journal_id
+                  FROM journal_headers
+                 WHERE journal_id = %s
+                 FOR UPDATE
+                &quot;&quot;&quot;</span>,
+                (journal_id,),
+            ).fetchone()
+            <span class="hljs-keyword">if</span> header <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
+                <span class="hljs-keyword">raise</span> HTTPException(status_code=<span class="hljs-number">404</span>, detail=<span class="hljs-string">&quot;Voucher tidak ditemukan&quot;</span>)
+            <span class="hljs-keyword">if</span> header[<span class="hljs-string">&quot;posting_status&quot;</span>] != <span class="hljs-string">&quot;DRAFT&quot;</span>:
+                <span class="hljs-keyword">raise</span> HTTPException(
+                    status_code=<span class="hljs-number">409</span>,
+                    detail=<span class="hljs-string">&quot;Hanya voucher DRAFT yang dapat diposting&quot;</span>,
+                )
+
+            lines = _fetch_lines(conn, journal_id)
+            _require_balanced(lines)
+            posted_by = request.posted_by.strip()
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> posted_by:
+                <span class="hljs-keyword">raise</span> HTTPException(status_code=<span class="hljs-number">422</span>, detail=<span class="hljs-string">&quot;posted_by tidak boleh kosong&quot;</span>)
+
+            posted_at = conn.execute(
+                <span class="hljs-string">&quot;SELECT CURRENT_TIMESTAMP AS posted_at&quot;</span>
+            ).fetchone()[<span class="hljs-string">&quot;posted_at&quot;</span>]
+            checksum = hash_checksum(header, lines, posted_by, posted_at)
+            result = conn.execute(
+                <span class="hljs-string">&quot;&quot;&quot;
+                UPDATE journal_headers
+                   SET posting_status = &#x27;POSTED&#x27;,
+                       posted_by = %s,
+                       posted_at = %s,
+                       hash_checksum = %s
+                 WHERE journal_id = %s
+                   AND posting_status = &#x27;DRAFT&#x27;
+                RETURNING journal_id, posting_status, posted_by,
+                          posted_at, hash_checksum
+                &quot;&quot;&quot;</span>,
+                (posted_by, posted_at, checksum, journal_id),
+            ).fetchone()
+            <span class="hljs-keyword">if</span> result <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
+                <span class="hljs-keyword">raise</span> HTTPException(
+                    status_code=<span class="hljs-number">409</span>,
+                    detail=<span class="hljs-string">&quot;Status voucher berubah; silakan ulangi&quot;</span>,
+                )
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">dict</span>(result)
+    <span class="hljs-keyword">except</span> psycopg.Error <span class="hljs-keyword">as</span> exc:
+        <span class="hljs-keyword">raise</span> HTTPException(
+            status_code=<span class="hljs-number">503</span>,
+            detail=<span class="hljs-string">&quot;Operasi database gagal&quot;</span>,
+        ) <span class="hljs-keyword">from</span> exc
+
+
+<span class="hljs-meta">@app.post(<span class="hljs-params"><span class="hljs-string">&quot;/journals/{journal_id}/reverse&quot;</span>, status_code=<span class="hljs-number">201</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">create_reversing_entry</span>(<span class="hljs-params">
+    journal_id: <span class="hljs-built_in">int</span>,
+    request: ReverseRequest,
+</span>) -&gt; <span class="hljs-built_in">dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]:
+    <span class="hljs-string">&quot;&quot;&quot;Buat voucher reversal baru dengan nilai debit dan kredit ditukar.&quot;&quot;&quot;</span>
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">with</span> psycopg.connect(_database_url(), row_factory=dict_row) <span class="hljs-keyword">as</span> conn:
+            original = conn.execute(
+                <span class="hljs-string">&quot;&quot;&quot;
+                SELECT journal_id, trx_date, reference_no, description,
+                       posting_status, created_by, created_at,
+                       reversal_of_journal_id
+                  FROM journal_headers
+                 WHERE journal_id = %s
+                 FOR UPDATE
+                &quot;&quot;&quot;</span>,
+                (journal_id,),
+            ).fetchone()
+            <span class="hljs-keyword">if</span> original <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
+                <span class="hljs-keyword">raise</span> HTTPException(status_code=<span class="hljs-number">404</span>, detail=<span class="hljs-string">&quot;Voucher asal tidak ditemukan&quot;</span>)
+            <span class="hljs-keyword">if</span> original[<span class="hljs-string">&quot;posting_status&quot;</span>] != <span class="hljs-string">&quot;POSTED&quot;</span>:
+                <span class="hljs-keyword">raise</span> HTTPException(
+                    status_code=<span class="hljs-number">409</span>,
+                    detail=<span class="hljs-string">&quot;Hanya voucher POSTED yang dapat dibalik&quot;</span>,
+                )
+
+            source_lines = _fetch_lines(conn, journal_id)
+            _require_balanced(source_lines)
+
+            created_by = request.created_by.strip()
+            posted_by = request.posted_by.strip()
+            reference_no = request.reference_no.strip()
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> created_by <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> posted_by <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> reference_no:
+                <span class="hljs-keyword">raise</span> HTTPException(
+                    status_code=<span class="hljs-number">422</span>,
+                    detail=<span class="hljs-string">&quot;Nomor bukti, created_by, dan posted_by wajib diisi&quot;</span>,
+                )
+
+            reversal = conn.execute(
+                <span class="hljs-string">&quot;&quot;&quot;
+                INSERT INTO journal_headers (
+                    trx_date, reference_no, description, posting_status,
+                    created_by, created_at, reversal_of_journal_id
+                )
+                VALUES (%s, %s, %s, &#x27;DRAFT&#x27;, %s, CURRENT_TIMESTAMP, %s)
+                RETURNING journal_id, trx_date, reference_no, description,
+                          created_by, created_at, reversal_of_journal_id
+                &quot;&quot;&quot;</span>,
+                (
+                    request.trx_date,
+                    reference_no,
+                    <span class="hljs-string">f&quot;Jurnal pembalik voucher <span class="hljs-subst">{journal_id}</span>: <span class="hljs-subst">{original[<span class="hljs-string">&#x27;description&#x27;</span>]}</span>&quot;</span>,
+                    created_by,
+                    journal_id,
+                ),
+            ).fetchone()
+
+            reversal_lines = [
+                {
+                    <span class="hljs-string">&quot;account_id&quot;</span>: row[<span class="hljs-string">&quot;account_id&quot;</span>],
+                    <span class="hljs-string">&quot;debit&quot;</span>: row[<span class="hljs-string">&quot;credit&quot;</span>],
+                    <span class="hljs-string">&quot;credit&quot;</span>: row[<span class="hljs-string">&quot;debit&quot;</span>],
+                }
+                <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> source_lines
+            ]
+            conn.executemany(
+                <span class="hljs-string">&quot;&quot;&quot;
+                INSERT INTO journal_lines (journal_id, account_id, debit, credit)
+                VALUES (%s, %s, %s, %s)
+                &quot;&quot;&quot;</span>,
+                [
+                    (
+                        reversal[<span class="hljs-string">&quot;journal_id&quot;</span>],
+                        row[<span class="hljs-string">&quot;account_id&quot;</span>],
+                        row[<span class="hljs-string">&quot;debit&quot;</span>],
+                        row[<span class="hljs-string">&quot;credit&quot;</span>],
+                    )
+                    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> reversal_lines
+                ],
+            )
+            _require_balanced(reversal_lines)
+
+            posted_at = conn.execute(
+                <span class="hljs-string">&quot;SELECT CURRENT_TIMESTAMP AS posted_at&quot;</span>
+            ).fetchone()[<span class="hljs-string">&quot;posted_at&quot;</span>]
+            checksum = hash_checksum(
+                reversal,
+                reversal_lines,
+                posted_by,
+                posted_at,
+            )
+            result = conn.execute(
+                <span class="hljs-string">&quot;&quot;&quot;
+                UPDATE journal_headers
+                   SET posting_status = &#x27;POSTED&#x27;,
+                       posted_by = %s,
+                       posted_at = %s,
+                       hash_checksum = %s
+                 WHERE journal_id = %s
+                   AND posting_status = &#x27;DRAFT&#x27;
+                RETURNING journal_id, posting_status, posted_by, posted_at,
+                          hash_checksum, reversal_of_journal_id
+                &quot;&quot;&quot;</span>,
+                (posted_by, posted_at, checksum, reversal[<span class="hljs-string">&quot;journal_id&quot;</span>]),
+            ).fetchone()
+            <span class="hljs-keyword">if</span> result <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
+                <span class="hljs-keyword">raise</span> HTTPException(
+                    status_code=<span class="hljs-number">409</span>,
+                    detail=<span class="hljs-string">&quot;Jurnal pembalik gagal diposting&quot;</span>,
+                )
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">dict</span>(result)
+    <span class="hljs-keyword">except</span> psycopg.errors.UniqueViolation <span class="hljs-keyword">as</span> exc:
+        <span class="hljs-keyword">raise</span> HTTPException(
+            status_code=<span class="hljs-number">409</span>,
+            detail=<span class="hljs-string">&quot;Voucher ini sudah memiliki jurnal pembalik&quot;</span>,
+        ) <span class="hljs-keyword">from</span> exc
+    <span class="hljs-keyword">except</span> psycopg.Error <span class="hljs-keyword">as</span> exc:
+        <span class="hljs-keyword">raise</span> HTTPException(
+            status_code=<span class="hljs-number">503</span>,
+            detail=<span class="hljs-string">&quot;Operasi database gagal&quot;</span>,
+        ) <span class="hljs-keyword">from</span> exc
+
+
+<span class="hljs-meta">@app.get(<span class="hljs-params"><span class="hljs-string">&quot;/journals/{journal_id}/verify-checksum&quot;</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">verify_journal_checksum</span>(<span class="hljs-params">journal_id: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]:
+    <span class="hljs-string">&quot;&quot;&quot;Bandingkan checksum tersimpan dengan payload voucher saat ini.&quot;&quot;&quot;</span>
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">with</span> psycopg.connect(_database_url(), row_factory=dict_row) <span class="hljs-keyword">as</span> conn:
+            header = _fetch_header(conn, journal_id)
+            <span class="hljs-keyword">if</span> header <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
+                <span class="hljs-keyword">raise</span> HTTPException(status_code=<span class="hljs-number">404</span>, detail=<span class="hljs-string">&quot;Voucher tidak ditemukan&quot;</span>)
+            <span class="hljs-keyword">if</span> header[<span class="hljs-string">&quot;posting_status&quot;</span>] != <span class="hljs-string">&quot;POSTED&quot;</span>:
+                <span class="hljs-keyword">raise</span> HTTPException(
+                    status_code=<span class="hljs-number">409</span>,
+                    detail=<span class="hljs-string">&quot;Checksum hanya tersedia untuk voucher POSTED&quot;</span>,
+                )
+
+            lines = _fetch_lines(conn, journal_id)
+            computed = hash_checksum(
+                header,
+                lines,
+                header[<span class="hljs-string">&quot;posted_by&quot;</span>],
+                header[<span class="hljs-string">&quot;posted_at&quot;</span>],
+            )
+            stored = (header[<span class="hljs-string">&quot;hash_checksum&quot;</span>] <span class="hljs-keyword">or</span> <span class="hljs-string">&quot;&quot;</span>).strip()
+            <span class="hljs-keyword">return</span> {
+                <span class="hljs-string">&quot;journal_id&quot;</span>: journal_id,
+                <span class="hljs-string">&quot;checksum_valid&quot;</span>: hmac.compare_digest(computed, stored),
+                <span class="hljs-string">&quot;stored_checksum&quot;</span>: stored,
+                <span class="hljs-string">&quot;computed_checksum&quot;</span>: computed,
+            }
+    <span class="hljs-keyword">except</span> psycopg.Error <span class="hljs-keyword">as</span> exc:
+        <span class="hljs-keyword">raise</span> HTTPException(
+            status_code=<span class="hljs-number">503</span>,
+            detail=<span class="hljs-string">&quot;Operasi database gagal&quot;</span>,
+        ) <span class="hljs-keyword">from</span> exc
+</div></code></pre>
+<h3 id="b-trigger-pengunci-voucher-posted">b. Trigger pengunci voucher <code>POSTED</code></h3>
+<p>Sebelum memasang trigger, skrip migrasi menambahkan metadata posting dan referensi reversal:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">ALTER TABLE</span> journal_headers
+    <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> posted_by <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">100</span>),
+    <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> posted_at TIMESTAMPTZ,
+    <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> hash_checksum <span class="hljs-type">CHAR</span>(<span class="hljs-number">64</span>),
+    <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> reversal_of_journal_id <span class="hljs-type">BIGINT</span>
+        <span class="hljs-keyword">REFERENCES</span> journal_headers (journal_id)
+        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> RESTRICT
+        <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> CASCADE;
+
+<span class="hljs-keyword">ALTER TABLE</span> journal_headers
+    <span class="hljs-keyword">ADD CONSTRAINT</span> uq_journal_headers_reversal_source
+        <span class="hljs-keyword">UNIQUE</span> (reversal_of_journal_id),
+    <span class="hljs-keyword">ADD CONSTRAINT</span> ck_journal_headers_posted_audit_fields
+        <span class="hljs-keyword">CHECK</span> (
+            posting_status <span class="hljs-operator">&lt;&gt;</span> <span class="hljs-string">&#x27;POSTED&#x27;</span>
+            <span class="hljs-keyword">OR</span> (
+                posted_by <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT NULL</span>
+                <span class="hljs-keyword">AND</span> posted_at <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT NULL</span>
+                <span class="hljs-keyword">AND</span> hash_checksum <span class="hljs-operator">~</span> <span class="hljs-string">&#x27;^[0-9a-f]{64}$&#x27;</span>
+            )
+        );
+</div></code></pre>
+<p>Trigger header menolak <code>UPDATE</code> dan <code>DELETE</code> terhadap voucher yang sudah <code>POSTED</code>. Trigger detail juga mencegah perubahan atau penambahan baris pada voucher <code>POSTED</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">OR</span> REPLACE <span class="hljs-keyword">FUNCTION</span> prevent_posted_journal_header_mutation()
+<span class="hljs-keyword">RETURNS</span> <span class="hljs-keyword">TRIGGER</span>
+<span class="hljs-keyword">LANGUAGE</span> plpgsql
+<span class="hljs-keyword">AS</span> $$
+<span class="hljs-keyword">BEGIN</span>
+    IF TG_OP <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;DELETE&#x27;</span> <span class="hljs-keyword">THEN</span>
+        IF OLD.posting_status <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;POSTED&#x27;</span> <span class="hljs-keyword">THEN</span>
+            RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+                ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;55000&#x27;</span>,
+                MESSAGE <span class="hljs-operator">=</span> format(
+                    <span class="hljs-string">&#x27;Voucher POSTED %s tidak boleh dihapus; buat jurnal pembalik&#x27;</span>,
+                    OLD.journal_id
+                );
+        <span class="hljs-keyword">END</span> IF;
+        <span class="hljs-keyword">RETURN</span> <span class="hljs-keyword">OLD</span>;
+    <span class="hljs-keyword">END</span> IF;
+
+    IF OLD.posting_status <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;POSTED&#x27;</span> <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;55000&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> format(
+                <span class="hljs-string">&#x27;Voucher POSTED %s tidak boleh diubah; buat jurnal pembalik&#x27;</span>,
+                OLD.journal_id
+            );
+    <span class="hljs-keyword">END</span> IF;
+
+    IF NEW.posting_status <span class="hljs-operator">&lt;&gt;</span> OLD.posting_status
+       <span class="hljs-keyword">AND</span> NEW.posting_status <span class="hljs-operator">&lt;&gt;</span> <span class="hljs-string">&#x27;POSTED&#x27;</span> <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;55000&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Transisi status yang diizinkan hanya DRAFT ke POSTED&#x27;</span>;
+    <span class="hljs-keyword">END</span> IF;
+
+    IF NEW.posting_status <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;POSTED&#x27;</span>
+       <span class="hljs-keyword">AND</span> (
+           NEW.posted_by <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span>
+           <span class="hljs-keyword">OR</span> NEW.posted_at <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span>
+           <span class="hljs-keyword">OR</span> NEW.hash_checksum <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span>
+       ) <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;23514&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Posting memerlukan posted_by, posted_at, dan hash_checksum&#x27;</span>;
+    <span class="hljs-keyword">END</span> IF;
+
+    <span class="hljs-keyword">RETURN</span> <span class="hljs-keyword">NEW</span>;
+<span class="hljs-keyword">END</span>;
+$$;
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TRIGGER</span> trg_lock_posted_journal_header
+BEFORE <span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">ON</span> journal_headers
+<span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-type">ROW</span>
+<span class="hljs-keyword">EXECUTE</span> <span class="hljs-keyword">FUNCTION</span> prevent_posted_journal_header_mutation();
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">OR</span> REPLACE <span class="hljs-keyword">FUNCTION</span> prevent_posted_journal_line_mutation()
+<span class="hljs-keyword">RETURNS</span> <span class="hljs-keyword">TRIGGER</span>
+<span class="hljs-keyword">LANGUAGE</span> plpgsql
+<span class="hljs-keyword">AS</span> $$
+<span class="hljs-keyword">DECLARE</span>
+    v_journal_id <span class="hljs-type">BIGINT</span>;
+    v_status <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">10</span>);
+<span class="hljs-keyword">BEGIN</span>
+    IF TG_OP <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;INSERT&#x27;</span> <span class="hljs-keyword">THEN</span>
+        v_journal_id :<span class="hljs-operator">=</span> NEW.journal_id;
+    <span class="hljs-keyword">ELSE</span>
+        v_journal_id :<span class="hljs-operator">=</span> OLD.journal_id;
+    <span class="hljs-keyword">END</span> IF;
+
+    <span class="hljs-keyword">SELECT</span> posting_status
+      <span class="hljs-keyword">INTO</span> v_status
+      <span class="hljs-keyword">FROM</span> journal_headers
+     <span class="hljs-keyword">WHERE</span> journal_id <span class="hljs-operator">=</span> v_journal_id
+     <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">UPDATE</span>;
+
+    IF v_status <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;POSTED&#x27;</span> <span class="hljs-keyword">THEN</span>
+        RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+            ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;55000&#x27;</span>,
+            MESSAGE <span class="hljs-operator">=</span> format(
+                <span class="hljs-string">&#x27;Baris voucher POSTED %s tidak boleh diubah atau dihapus; buat jurnal pembalik&#x27;</span>,
+                v_journal_id
+            );
+    <span class="hljs-keyword">END</span> IF;
+
+    IF TG_OP <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;UPDATE&#x27;</span> <span class="hljs-keyword">AND</span> NEW.journal_id <span class="hljs-operator">&lt;&gt;</span> OLD.journal_id <span class="hljs-keyword">THEN</span>
+        <span class="hljs-keyword">SELECT</span> posting_status
+          <span class="hljs-keyword">INTO</span> v_status
+          <span class="hljs-keyword">FROM</span> journal_headers
+         <span class="hljs-keyword">WHERE</span> journal_id <span class="hljs-operator">=</span> NEW.journal_id
+         <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">UPDATE</span>;
+
+        IF v_status <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;POSTED&#x27;</span> <span class="hljs-keyword">THEN</span>
+            RAISE EXCEPTION <span class="hljs-keyword">USING</span>
+                ERRCODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;55000&#x27;</span>,
+                MESSAGE <span class="hljs-operator">=</span> format(
+                    <span class="hljs-string">&#x27;Tidak dapat memindahkan baris ke voucher POSTED %s&#x27;</span>,
+                    NEW.journal_id
+                );
+        <span class="hljs-keyword">END</span> IF;
+    <span class="hljs-keyword">END</span> IF;
+
+    IF TG_OP <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;DELETE&#x27;</span> <span class="hljs-keyword">THEN</span>
+        <span class="hljs-keyword">RETURN</span> <span class="hljs-keyword">OLD</span>;
+    <span class="hljs-keyword">END</span> IF;
+    <span class="hljs-keyword">RETURN</span> <span class="hljs-keyword">NEW</span>;
+<span class="hljs-keyword">END</span>;
+$$;
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TRIGGER</span> trg_lock_posted_journal_line
+BEFORE <span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">ON</span> journal_lines
+<span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-type">ROW</span>
+<span class="hljs-keyword">EXECUTE</span> <span class="hljs-keyword">FUNCTION</span> prevent_posted_journal_line_mutation();
+</div></code></pre>
+<h3 id="c-reversing-entry-dan-checksum">c. Reversing entry dan checksum</h3>
+<p>Reversing entry lebih baik daripada mengubah jurnal langsung karena voucher yang sudah diposting tetap utuh. Backend membuat voucher baru yang merujuk voucher asal melalui <code>reversal_of_journal_id</code> dan menukar debit dengan kredit untuk setiap akun. Cara ini mempertahankan jejak transaksi awal dan koreksi.</p>
+<p><code>hash_checksum</code> dihitung dengan SHA-256 dari representasi JSON kanonis header, metadata posting, dan baris jurnal. Verifikasi menghitung ulang hash dan membandingkannya dengan nilai tersimpan. Hash dapat membantu mendeteksi perubahan apabila nilai pembanding terlindungi, tetapi bukan tanda tangan digital; administrator yang dapat mengubah data dan checksum dapat menghitung ulang keduanya.</p>
+<p>Audit trail yang dapat dipertanggungjawabkan memerlukan identitas terautentikasi, waktu pembuatan dan posting, otorisasi, dokumen sumber, referensi reversal, retensi, serta akses log yang dibatasi. Kelengkapan harus mengikuti kebijakan entitas dan peraturan yang relevan; satu kolom checksum tidak dengan sendirinya memenuhi seluruh kebutuhan audit.</p>
+<blockquote>
+<p><strong>Narasi hasil uji backend:</strong> endpoint dan SQL di atas belum dieksekusi pada database atau server aplikasi di sesi ini. Karena itu belum ada hasil aktual untuk posting, reversal, penolakan perubahan voucher <code>POSTED</code>, atau pencocokan checksum. Setelah uji integrasi dilakukan, catat request, respons, versi PostgreSQL, serta status commit/rollback di sini tanpa menyertakan kredensial.</p>
+</blockquote>
+<div class="page-break"></div>
+<h1 id="lampiran">LAMPIRAN</h1>
+<h2 id="a-daftar-prompt-ai-yang-digunakan">A. Daftar Prompt AI yang Digunakan</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">No.</th>
+<th>Tahap</th>
+<th>Prompt/tujuan ringkas</th>
+<th>Tool</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td>Soal 1.1</td>
+<td>Rancang ERD tiga tabel General Ledger, kardinalitas, relasi, dan alasan 3NF.</td>
+<td>Copilot SDK di VS Code pada riwayat sesi; Gemini perlu bukti terpisah</td>
+<td>ERD dan analisis pada laporan serta <code>soal1/erd.mermaid</code>.</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td>Soal 1.2</td>
+<td>Buat DDL PostgreSQL dengan PK, FK, CHECK, indeks, dan komentar.</td>
+<td>Copilot SDK di VS Code pada riwayat sesi; Gemini perlu bukti terpisah</td>
+<td>DDL pada laporan dan <code>soal1/ddl.sql</code>.</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td>Soal 1.3</td>
+<td>Analisis Header-Line vs Flat dari sisi audit trail, 3NF, dan anomali.</td>
+<td>Copilot SDK di VS Code pada riwayat sesi</td>
+<td>Analisis pada laporan dan <code>soal1/analisis.md</code>.</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td>Soal 2.1</td>
+<td>Buat trigger mutasi stok yang menolak stok negatif dan memakai row lock.</td>
+<td>Copilot SDK di VS Code pada riwayat sesi</td>
+<td>Trigger dan skrip uji pada <code>soal2/</code>.</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td>Soal 2.2</td>
+<td>Bandingkan <code>SELECT ... FOR UPDATE</code> dengan <code>SERIALIZABLE</code> untuk overselling.</td>
+<td>Copilot SDK di VS Code pada riwayat sesi</td>
+<td>Prosedur dan analisis concurrency pada laporan serta <code>soal2/concurrency.md</code>.</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td>Soal 3.1a</td>
+<td>Buat formulir Streamlit Voucher Kas Keluar dengan tabel dinamis dan indikator balance.</td>
+<td>Riwayat coding mencatat Copilot SDK; Gemini Canvas perlu bukti terpisah</td>
+<td>UI pada laporan dan <code>soal3/frontend/app.py</code>.</td>
+</tr>
+<tr>
+<td style="text-align:right">7</td>
+<td>Soal 3.1b</td>
+<td>Telaah PSAK 2 terkait kas, arus kas keluar, klasifikasi, dan audit trail.</td>
+<td>NotebookLM dinyatakan sebagai alat bantu; riwayat prompt/sumber perlu dilampirkan</td>
+<td>Rangkuman pada laporan dan <code>soal3/psak_verification.md</code>.</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td>Soal 3.2</td>
+<td>Rancang API FastAPI, lock voucher <code>POSTED</code>, reversal, dan checksum SHA-256.</td>
+<td>Copilot SDK di VS Code pada riwayat sesi; Gemini perlu bukti terpisah</td>
+<td>Backend dan SQL audit pada laporan serta <code>soal3/backend/</code>.</td>
+</tr>
+<tr>
+<td style="text-align:right">9</td>
+<td>Verifikasi database</td>
+<td>Jalankan dan periksa DDL serta trigger pada sandbox PostgreSQL.</td>
+<td>PostgreSQL Sandbox (Neon.tech), bukan model AI</td>
+<td>Belum ada hasil eksekusi tercatat; narasi status uji menyebutkan belum dijalankan.</td>
+</tr>
+</tbody>
+</table>
+<p>Prompt UI yang tercatat meminta tanggal, nomor bukti, deskripsi, tabel <code>st.data_editor</code> dengan <code>account_id</code>, <code>account_name</code>, <code>debit</code>, dan <code>credit</code>, nilai minimum nol, indikator total debit/kredit/selisih, serta submit hanya saat balance dan total debit lebih dari nol. Sesuaikan nama tool, tanggal, dan redaksi prompt dengan catatan penggunaan yang sebenarnya. PostgreSQL Sandbox adalah lingkungan eksekusi, bukan alat AI generatif.</p>
+<h2 id="b-referensi">B. Referensi</h2>
+<ol>
+<li>Ikatan Akuntan Indonesia (IAI), <strong>PSAK 2 — Laporan Arus Kas</strong>, gunakan edisi resmi yang berlaku. Informasi SAK: <a href="https://web.iaiglobal.or.id/SAK-IAI">https://web.iaiglobal.or.id/SAK-IAI</a>.</li>
+<li>PostgreSQL Global Development Group, <a href="https://www.postgresql.org/docs/">PostgreSQL Documentation</a>.</li>
+<li>PostgreSQL, <a href="https://www.postgresql.org/docs/current/explicit-locking.html">Explicit Locking</a>.</li>
+<li>PostgreSQL, <a href="https://www.postgresql.org/docs/current/transaction-iso.html">Transaction Isolation</a>.</li>
+<li>PostgreSQL, <a href="https://www.postgresql.org/docs/current/plpgsql-trigger.html">PL/pgSQL Trigger Functions</a>.</li>
+<li>Streamlit, <a href="https://docs.streamlit.io/">Documentation</a>.</li>
+<li>FastAPI, <a href="https://fastapi.tiangolo.com/">Documentation</a>.</li>
+<li>Neon, <a href="https://neon.tech/docs/">Documentation</a>.</li>
+</ol>
+<h2 id="c-pernyataan-orisinalitas">C. Pernyataan Orisinalitas</h2>
+<blockquote>
+<p>Saya menyatakan bahwa laporan ini adalah hasil pekerjaan saya sendiri dengan bantuan AI Generatif terpandu. Semua prompt dan hasil AI didokumentasikan dalam lampiran. Saya bertanggung jawab untuk memeriksa dan memahami seluruh isi, menguji hasil kode, serta mencantumkan sumber yang digunakan sesuai ketentuan akademik.</p>
+</blockquote>
+<p><strong>Nama:</strong> [MARITZA DHENA ALIFYA]<br>
+<strong>NIM:</strong> [12030124130158]<br>
+<strong>Tanggal:</strong> 19 Oktober 2026<br>
+<strong>Tanda tangan:</strong> <em><strong><strong><strong><strong><strong><strong>ttd</strong></strong></strong></strong></strong></strong></em>____</p>
+
+</body>
+</html>
