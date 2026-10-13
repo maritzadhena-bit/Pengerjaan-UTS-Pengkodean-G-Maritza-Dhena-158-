@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Voucher Kas Keluar</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800 antialiased py-8 px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-5xl mx-auto space-y-6">
+        
+        <!-- HEADER KEPALA HALAMAN -->
+        <header class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
+            <div class="flex items-center space-x-3">
+                <span class="text-3xl">💸</span>
+                <div>
+                    <h1 class="text-2xl font-bold text-slate-900">Formulir Entri Jurnal: Voucher Kas Keluar</h1>
+                    <p class="text-sm text-slate-500 mt-1">Silakan lengkapi informasi transaksi dan rincian jurnal di bawah ini dengan teliti.</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- KONTAINER UTAMA FORM -->
+        <main class="space-y-6">
+            
+            <!-- SECTION 1: HEADER FORM -->
+            <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+                <h2 class="text-lg font-semibold text-slate-800 flex items-center gap-2">
+                    <span>📌</span> Header Form
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Input Tanggal Transaksi -->
+                    <div>
+                        <label for="trxDate" class="block text-sm font-medium text-slate-700 mb-1">Tanggal Transaksi</label>
+                        <input type="date" id="trxDate" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <!-- Input Nomor Bukti -->
+                    <div>
+                        <label for="voucherNo" class="block text-sm font-medium text-slate-700 mb-1">Nomor Bukti</label>
+                        <input type="text" id="voucherNo" value="VKK-2026-001" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <!-- Input Deskripsi -->
+                    <div>
+                        <label for="description" class="block text-sm font-medium text-slate-700 mb-1">Deskripsi / Keterangan</label>
+                        <input type="text" id="description" value="Pembayaran biaya operasional kantor" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: DETAIL JURNAL -->
+            <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                        <h2 class="text-lg font-semibold text-slate-800 flex items-center gap-2">
+                            <span>📋</span> Detail Jurnal
+                        </h2>
+                        <p class="text-sm text-slate-500 mt-1">Masukkan rincian akun, debit, dan kredit. Baris dapat ditambah atau dihapus.</p>
+                    </div>
+                    <!-- Tombol Tambah Baris -->
+                    <button type="button" id="addRowBtn" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm px-4 py-2.5 rounded-xl transition shadow-sm">
+                        + Tambah Baris
+                    </button>
+                </div>
+
+                <!-- Tabel Responsif -->
+                <div class="overflow-x-auto border border-slate-200 rounded-xl">
+                    <table class="w-full text-left border-collapse" id="journalTable">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-700 text-xs uppercase font-semibold border-b border-slate-200">
+                                <th class="py-3 px-4">ID Akun</th>
+                                <th class="py-3 px-4">Nama Akun</th>
+                                <th class="py-3 px-4">Debit (Rp)</th>
+                                <th class="py-3 px-4">Kredit (Rp)</th>
+                                <th class="py-3 px-4 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-sm">
+                            <!-- Baris awal 1 -->
+                            <tr class="hover:bg-slate-50">
+                                <td class="py-3 px-4"><input type="text" value="1110" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 acc-id" placeholder="ID Akun"></td>
+                                <td class="py-3 px-4"><input type="text" value="Kas di Bank" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 acc-name" placeholder="Nama Akun"></td>
+                                <td class="py-3 px-4"><input type="number" min="0" step="0.01" value="0" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 debit-input" placeholder="0"></td>
+                                <td class="py-3 px-4"><input type="number" min="0" step="0.01" value="500000" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 credit-input" placeholder="0"></td>
+                                <td class="py-3 px-4 text-center"><button type="button" class="delete-row text-red-500 hover:text-red-700 font-semibold p-1.5 rounded-lg hover:bg-red-50 transition">Hapus</button></td>
+                            </tr>
+                            <!-- Baris awal 2 -->
+                            <tr class="hover:bg-slate-50">
+                                <td class="py-3 px-4"><input type="text" value="5110" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 acc-id" placeholder="ID Akun"></td>
+                                <td class="py-3 px-4"><input type="text" value="Beban Operasional" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 acc-name" placeholder="Nama Akun"></td>
+                                <td class="py-3 px-4"><input type="number" min="0" step="0.01" value="500000" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 debit-input" placeholder="0"></td>
+                                <td class="py-3 px-4"><input type="number" min="0" step="0.01" value="0" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 credit-input" placeholder="0"></td>
+                                <td class="py-3 px-4 text-center"><button type="button" class="delete-row text-red-500 hover:text-red-700 font-semibold p-1.5 rounded-lg hover:bg-red-50 transition">Hapus</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SECTION 3: LIVE BALANCED INDICATOR -->
+            <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+                <h2 class="text-lg font-semibold text-slate-800 flex items-center gap-2">
+                    <span>⚖️</span> Live Balanced Indicator
+                </h2>
+
+                <!-- 3 Kartu Metrik Real-Time -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Total Debit</span>
+                        <p id="totalDebitText" class="text-xl font-bold text-slate-900 mt-1">Rp 0,00</p>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Total Kredit</span>
+                        <p id="totalCreditText" class="text-xl font-bold text-slate-900 mt-1">Rp 0,00</p>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Selisih (Debit - Kredit)</span>
+                        <p id="differenceText" class="text-xl font-bold text-slate-900 mt-1">Rp 0,00</p>
+                    </div>
+                </div>
+
+                <!-- Banner Indikator Sukses / Error -->
+                <div id="balanceAlert" class="p-4 rounded-xl font-medium text-sm transition-all duration-300">
+                    <!-- Dinamis via JS -->
+                </div>
+            </section>
+
+            <!-- SECTION 4: TOMBOL SUBMIT & NOTIFIKASI -->
+            <div class="pt-2">
+                <button type="button" id="submitBtn" class="w-full py-3.5 px-6 rounded-xl font-semibold text-white shadow-md transition disabled:bg-slate-300 disabled:cursor-not-allowed bg-blue-600 hover:bg-blue-700">
+                    💾 Simpan Voucher Kas Keluar
+                </button>
+            </div>
+
+            <!-- Pesan Notifikasi Sukses Custom (Pengganti Alert Bawaan) -->
+            <div id="successMessage" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-800 p-4 rounded-2xl text-center font-medium shadow-sm">
+                🎉 Voucher Kas Keluar berhasil disimpan!
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Set tanggal default hari ini
+        document.getElementById('trxDate').valueAsDate = new Date();
+
+        // Fungsi format Rupiah standar Indonesia
+        function formatRupiah(number) {
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(number);
+        }
+
+        // Fungsi utama untuk menghitung ulang total debit, kredit, dan status balance
+        function calculateBalance() {
+            const tbody = document.querySelector('#journalTable tbody');
+            const rows = tbody.querySelectorAll('tr');
+
+            let totalDebit = 0;
+            let totalCredit = 0;
+
+            rows.forEach(row => {
+                const debitInput = row.querySelector('.debit-input');
+                const creditInput = row.querySelector('.credit-input');
+
+                // Nilai kosong atau NaN diperlakukan sebagai 0
+                const debitVal = parseFloat(debitInput.value) || 0;
+                const creditVal = parseFloat(creditInput.value) || 0;
+
+                totalDebit += debitVal;
+                totalCredit += creditVal;
+            });
+
+            const difference = totalDebit - totalCredit;
+
+            // Update Tampilan Metrik
+            document.getElementById('totalDebitText').innerText = formatRupiah(totalDebit);
+            document.getElementById('totalCreditText').innerText = formatRupiah(totalCredit);
+            document.getElementById('differenceText').innerText = formatRupiah(difference);
+
+            // Periksa Kondisi Balance (Toleransi selisih floating point sangat kecil, total debit > 0)
+            const isBalanced = (Math.abs(difference) < 0.005) && (totalDebit > 0);
+
+            const alertBox = document.getElementById('balanceAlert');
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (isBalanced) {
+                alertBox.className = "p-4 rounded-xl font-medium text-sm bg-emerald-50 border border-emerald-200 text-emerald-800";
+                alertBox.innerHTML = "✅ Jurnal Balanced! Total Debit sama dengan Total Kredit.";
+                submitBtn.disabled = false;
+            } else {
+                alertBox.className = "p-4 rounded-xl font-medium text-sm bg-red-50 border border-red-200 text-red-800";
+                alertBox.innerHTML = "❌ Jurnal Tidak Balance! Pastikan Total Debit == Total Kredit dan bernilai > 0.";
+                submitBtn.disabled = true;
+            }
+        }
+
+        // Event Listener untuk input real-time pada tabel
+        document.querySelector('#journalTable').addEventListener('input', function(e) {
+            if (e.target.classList.contains('debit-input') || e.target.classList.contains('credit-input')) {
+                calculateBalance();
+            }
+        });
+
+        // Tambah baris baru secara dinamis
+        document.getElementById('addRowBtn').addEventListener('click', function() {
+            const tbody = document.querySelector('#journalTable tbody');
+            const newRow = document.createElement('tr');
+            newRow.className = "hover:bg-slate-50";
+            newRow.innerHTML = `
+                <td class="py-3 px-4"><input type="text" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 acc-id" placeholder="ID Akun"></td>
+                <td class="py-3 px-4"><input type="text" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 acc-name" placeholder="Nama Akun"></td>
+                <td class="py-3 px-4"><input type="number" min="0" step="0.01" value="0" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 debit-input" placeholder="0"></td>
+                <td class="py-3 px-4"><input type="number" min="0" step="0.01" value="0" class="w-full border border-slate-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500 credit-input" placeholder="0"></td>
+                <td class="py-3 px-4 text-center"><button type="button" class="delete-row text-red-500 hover:text-red-700 font-semibold p-1.5 rounded-lg hover:bg-red-50 transition">Hapus</button></td>
+            `;
+            tbody.appendChild(newRow);
+            calculateBalance();
+        });
+
+        // Hapus baris dari tabel
+        document.querySelector('#journalTable').addEventListener('click', function(e) {
+            if (e.target.classList.contains('delete-row')) {
+                const tbody = document.querySelector('#journalTable tbody');
+                // Minimal pertahankan 1 baris
+                if (tbody.querySelectorAll('tr').length > 1) {
+                    e.target.closest('tr').remove();
+                    calculateBalance();
+                } else {
+                    // Jangan pakai alert, gunakan notifikasi/log sederhana
+                    console.warn("Minimal harus ada 1 baris jurnal.");
+                }
+            }
+        });
+
+        // Aksi Submit Form
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const voucherNo = document.getElementById('voucherNo').value;
+            const successBox = document.getElementById('successMessage');
+            successBox.innerText = `🎉 Voucher Kas Keluar dengan nomor "${voucherNo}" berhasil disimpan!`;
+            successBox.classList.remove('hidden');
+            
+            // Scroll ke bawah untuk menampilkan pesan sukses
+            successBox.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Jalankan perhitungan awal saat halaman dimuat
+        window.addEventListener('DOMContentLoaded', calculateBalance);
+    </script>
+</body>
+</html>
